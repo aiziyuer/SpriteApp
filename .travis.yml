@@ -2,7 +2,7 @@ language: java
 jdk:
 - oraclejdk8
 sudo: false
-script: mvn clear verify
+script: mvn clean verify
 deploy:
   provider: releases
   api_key:
