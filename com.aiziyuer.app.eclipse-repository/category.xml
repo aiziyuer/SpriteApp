@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.aiziyuer.app.feature_0.1.0.qualifier.jar" id="com.aiziyuer.app.feature" version="0.1.0.qualifier">
+      <category name="example_category_id"/>
+   </feature>
+
+   <category-def name="example_category_id" label="Example Category">
+      <description>
+         Description of example category
+      </description>
+   </category-def>
+</site>
