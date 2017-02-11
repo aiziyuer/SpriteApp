@@ -1,0 +1,14 @@
+language: java
+jdk:
+- oraclejdk8
+sudo: false
+script: mvn clear verify
+deploy:
+  provider: releases
+  api_key:
+    secure: VeKUvcb0l1UUpPq+vvzyXNgngD3iJlF5tLoyEssYV9lD6SCNlhJnDLMYmO/+v2csJMSMLqbH9JtAi8vKtJLkhwx+JRrwHdfff+YZaNDGte2FqWpJf2CeLPJ0Zk/A7cRnlQ5saJx4QvcpHlnuVep67ivdDm0zlMvgGwBigNayoctoG1IvjnvcBDuTmUeO4FFNrJbCHREqTdBLDYKMty8EpfMaROBZq6w0vW8HGqe/GAm6W/OpT4asbpp8/6qLdLPgSCGDHxFMYs9a53eRpE9nMB+0bNbZFqhp7fKyS3qjXIPjM+q6zX7R0kEYw1kUelzDvzzrwt4JPwqwgsL7i4e8FxnqFATAJMmZnd78hGiNJQed7gIfE18XKjHMi1BHkaq7SaVCjrzTJWRotGQymj0B5IM33tdhtY6TEFHd6HpfV/yr6KTsbOMVPZ/ERTll/L9VKU7kiK8zghhq7NwhobyQypB5IO5stW/MaJ5o6YgHqhpOxdd29DzpEgCGES9Lxe4JEklqWvheiSTPDfVkAve/fZJXZmpHWb19TxcStGqUbVTSe0PArFwSulJc/QieuYhUQnQDVXSt94E6akIoOFL9941PZy23iE8UbiTQ8D92W/M0hhw4n2WAt19YpVk8SaFkZl5DZkXjMCfz18Yv/wrxl2K6xk0oCs3icwsAinBZNLE=
+  file: com.aiziyuer.app.eclipse-repository/target/products/SpriteApp-win32.win32.x86_64.zip
+  skip_cleanup: true
+  on:
+    repo: aiziyuer/SpriteApp
+    tag: true
