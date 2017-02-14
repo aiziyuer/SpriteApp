@@ -10,7 +10,7 @@
 	<parent>
 		<version>1.0.0-SNAPSHOT</version>
 		<groupId>com.aiziyuer</groupId>
-		<artifactId>parent</artifactId>
+		<artifactId>SpriteApp</artifactId>
 	</parent>
 
 	<build>

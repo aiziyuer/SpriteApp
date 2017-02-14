@@ -7,7 +7,7 @@
 	<artifactId>eclipse-target</artifactId>
 
 	<parent>
-		<artifactId>parent</artifactId>
+		<artifactId>SpriteApp</artifactId>
 		<groupId>com.aiziyuer</groupId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
@@ -27,16 +27,6 @@
 						</goals>
 						<configuration>
 							<artifacts>
-								<artifact>
-									<file>helios.target</file>
-									<type>target</type>
-									<classifier>helios</classifier>
-								</artifact>
-								<artifact>
-									<file>indigo.target</file>
-									<type>target</type>
-									<classifier>indigo</classifier>
-								</artifact>
 								<artifact>
 									<file>mars.target</file>
 									<type>target</type>

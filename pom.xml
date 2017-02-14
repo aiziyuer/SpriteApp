@@ -5,12 +5,13 @@
 
 	<version>1.0.0-SNAPSHOT</version>
 	<groupId>com.aiziyuer</groupId>
-	<artifactId>parent</artifactId>
+	<artifactId>SpriteApp</artifactId>
 	<packaging>pom</packaging>
 	<name>RCP Parent</name>
 
 	<properties>
-		<tycho-version>0.26.0</tycho-version>
+		<tycho-version>1.0.0</tycho-version>
+		<maven-compiler-version>2.3.2</maven-compiler-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -26,7 +27,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>${maven-compiler-version}</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
@@ -42,11 +43,16 @@
 						<artifact>
 							<groupId>com.aiziyuer</groupId>
 							<artifactId>eclipse-target</artifactId>
-							<version>1.0.0-SNAPSHOT</version>
+							<version>${project.version}</version>
 							<classifier>mars</classifier>
 						</artifact>
 					</target>
 					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
 						<environment>
 							<os>win32</os>
 							<ws>win32</ws>
