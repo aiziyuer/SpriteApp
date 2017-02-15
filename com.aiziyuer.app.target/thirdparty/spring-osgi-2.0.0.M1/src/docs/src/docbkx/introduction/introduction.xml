@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+
+      <partintro>
+          <para>
+            <para>This document is the reference guide for Spring Dynamic Modules. It explains the relationship
+            between Spring Dynamic Modules and the OSGi 4.2 Blueprint specification, defines Spring Dynamic Modules 
+            concepts and semantics, the syntax for the <ulink url="http://www.osgi.org">
+			OSGi Service Platform</ulink> based namespaces, the Dynamic Modules extender bundle
+			and the OSGi manifest header entries defined by Dynamic Modules.</para>
+			
+			<para>For an introduction to OSGi or Spring, or Spring DM examples, please refer to
+			<xref linkend="get-started"/> - this documentation refers only to Spring DM and assumes the user is familiar
+			with OSGi and Spring concepts.</para>
+
+			<para><emphasis>Note: OSGi is a trademark of the OSGi Alliance. Project
+			name is pending final approval from the Alliance.</emphasis></para>
+
+			<para><emphasis>Note: Please see the <ulink
+			url="./issues.html">known issues</ulink> page for Spring Dynamic Modules &version; release.</emphasis>
+		    </para>
+          </para>
+          
+      </partintro>
