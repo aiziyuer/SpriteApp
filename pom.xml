@@ -20,6 +20,7 @@
 		<module>com.aiziyuer.app</module>
 		<module>com.aiziyuer.app.feature</module>
 		<module>com.aiziyuer.app.target</module>
+		<module>com.aiziyuer.app.backend</module>
 	</modules>
 
 	<build>
