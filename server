@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+usage(){
+  printf "
+  Usage
+
+    start [options]
+
+  Options
+
+  [-k|--kill] 杀死jetty进程
+
+  [-j|--jetty] 启动jetty进程
+
+  [-h|--help] 显示帮助
+  "
+}
+
+kill_jetty_service(){
+  # 强杀jetty进程
+  ps -ef | grep jetty| grep -v grep | awk 'system( " kill -9 "$2)'
+
+}
+
+start_jetty_service(){
+  # 进入RepoServer执行
+  cd RepoServer
+
+  # 启动site
+  mvn p2:site
+  mvn jetty:run >/dev/null 2>&1 &
+  sleep 5
+
+  cd ..
+}
+
+compile_all(){
+  mvn clean verify
+}
+
+while true; do
+  case "$1" in
+
+    (-k|--kill)
+	    kill_jetty_service
+      exit 0
+	    ;;
+
+    (-j|--jekyll)
+      kill_jetty_service
+      start_jetty_service
+      exit 0
+      ;;
+
+    (-a|--auto)
+      kill_jetty_service
+      start_jetty_service
+      compile_all
+      exit 0
+      ;;
+
+    (-h|--help)
+      usage
+      exit 0
+      ;;
+
+    (*)
+      usage
+      exit 1
+      ;;
+
+  esac
+done
