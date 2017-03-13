@@ -28,7 +28,7 @@ start_jetty_service(){
 
   # 启动site
   mvn p2:site
-  mvn jetty:run >/dev/null 2>&1 &
+  mvn jetty:run &
   sleep 5
 
   cd ..

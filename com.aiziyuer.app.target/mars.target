@@ -11,7 +11,7 @@
 <unit id="org.apache.commons.io" version="2.1.0"/>
 <unit id="org.apache.commons.lang3" version="3.1.0"/>
 <unit id="org.apache.commons.lang" version="2.6.0"/>
-<repository location="http://localhost:8080/site"/>
+<repository location="http://127.0.0.1:8080/site"/>
 </location>
 </locations>
 </target>
