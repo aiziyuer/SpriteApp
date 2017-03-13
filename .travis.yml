@@ -3,7 +3,7 @@ jdk:
 - oraclejdk8
 sudo: true
 install: ./server -a
-script: mvn package
+script: ./server -k
 deploy:
   provider: releases
   api_key:

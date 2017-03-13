@@ -29,7 +29,7 @@ start_jetty_service(){
   # 启动site
   mvn p2:site
   mvn jetty:run &
-  sleep 5
+  sleep 2
 
   cd ..
 }
