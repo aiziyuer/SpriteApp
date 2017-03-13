@@ -20,7 +20,6 @@
 		<module>com.aiziyuer.app</module>
 		<module>com.aiziyuer.app.feature</module>
 		<module>com.aiziyuer.app.target</module>
-		<module>com.aiziyuer.app.backend</module>
 	</modules>
 
 	<build>
@@ -59,16 +58,16 @@
 							<ws>win32</ws>
 							<arch>x86_64</arch>
 						</environment>
-						<!-- <environment> -->
-						<!-- <os>linux</os> -->
-						<!-- <ws>gtk</ws> -->
-						<!-- <arch>x86_64</arch> -->
-						<!-- </environment> -->
-						<!-- <environment> -->
-						<!-- <os>macosx</os> -->
-						<!-- <ws>cocoa</ws> -->
-						<!-- <arch>x86_64</arch> -->
-						<!-- </environment> -->
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
 					</environments>
 				</configuration>
 			</plugin>
