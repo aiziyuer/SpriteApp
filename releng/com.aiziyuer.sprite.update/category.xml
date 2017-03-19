@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.aiziyuer.app.feature_0.1.0.qualifier.jar" id="com.aiziyuer.app.feature" version="0.1.0.qualifier">
+   <feature url="features/com.aiziyuer.rcp.feature_0.1.0.qualifier.jar" id="com.aiziyuer.rcp.feature" version="0.1.0.qualifier">
       <category name="example_category_id"/>
    </feature>
 

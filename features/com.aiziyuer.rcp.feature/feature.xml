@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.aiziyuer.app.feature"
+      id="com.aiziyuer.rcp.feature"
       label="%featureName"
       version="0.1.0.qualifier"
       provider-name="%providerName">
@@ -18,7 +18,7 @@
    </license>
 
    <plugin
-         id="com.aiziyuer.app"
+         id="com.aiziyuer.rcp"
          download-size="0"
          install-size="0"
          version="0.0.0"

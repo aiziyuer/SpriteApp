@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Bundle
-Bundle-SymbolicName: com.aiziyuer.app;singleton:=true
+Bundle-SymbolicName: com.aiziyuer.rcp;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: example.bundle.Activator
 Require-Bundle: org.eclipse.core.runtime,
