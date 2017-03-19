@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?pde version="3.8"?>
+<?pde version="3.5"?>
 
-<product name="Example Product" uid="SpriteApp" id="app.product" application="com.aiziyuer.app.application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Example Product" uid="SpriteApp" id="app.product" application="com.aiziyuer.rcp.application" version="0.1.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -26,6 +26,18 @@
       <feature id="com.aiziyuer.rcp.feature"/>
       <feature id="org.eclipse.rcp"/>
       <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <feature id="org.eclipse.emf.ecore"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
+      <feature id="org.eclipse.equinox.p2.extras.feature"/>
+      <feature id="org.eclipse.emf.common"/>
+      <feature id="org.eclipse.equinox.p2.core.feature"/>
+      <feature id="org.eclipse.ecf.core.feature"/>
+      <feature id="org.eclipse.equinox.p2.rcp.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.feature"/>
+      <feature id="org.eclipse.ecf.core.ssl.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
+      <feature id="org.eclipse.e4.rcp"/>
    </features>
 
    <configurations>

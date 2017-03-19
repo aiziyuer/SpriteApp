@@ -2,14 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         id="eclipse-repository"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="com.aiziyuer.app.application"
-            name="Example Product">
-      </product>
-   </extension>
-   <extension
          id="application"
          point="org.eclipse.core.runtime.applications">
       <application>
@@ -27,10 +19,10 @@
       </perspective>
    </extension>
    <extension
-         id="product"
+         id="app.product"
          point="org.eclipse.core.runtime.products">
       <product
-            application="com.aiziyuer.app.application"
+            application="com.aiziyuer.rcp.application"
             name="Hello RCP">
          <property
                name="windowImages"
