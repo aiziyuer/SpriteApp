@@ -11,8 +11,8 @@
 	</parent>
 
 	<modules>
-		<module>bundles</module>
-		<module>features</module>
+		<module>com.aiziyuer.rcp</module>
+		<module>com.aiziyuer.rcp.feature</module>
 		<module>releng</module>
 	</modules>
 </project>
