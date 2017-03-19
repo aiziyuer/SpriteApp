@@ -13,5 +13,7 @@
 
     <modules>
         <module>com.aiziyuer.sprite.update</module>
+        <module>com.aiziyuer.sprite.product</module>
+        <module>com.aiziyuer.sprite.target</module>
     </modules>
 </project>

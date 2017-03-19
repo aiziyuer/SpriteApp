@@ -23,7 +23,7 @@
    </plugins>
 
    <features>
-      <feature id="com.aiziyuer.app.feature"/>
+      <feature id="com.aiziyuer.rcp.feature"/>
       <feature id="org.eclipse.rcp"/>
       <feature id="org.eclipse.equinox.p2.user.ui"/>
    </features>

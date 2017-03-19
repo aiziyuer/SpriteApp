@@ -34,6 +34,15 @@
                 <artifactId>target-platform-configuration</artifactId>
                 <version>${tycho.version}</version>
                 <configuration>
+                    <target>
+                        2
+                        <artifact>
+                            <groupId>com.aiziyuer.sprite</groupId>
+                            <artifactId>com.aiziyuer.sprite.target</artifactId>
+                            <version>1.0.0-SNAPSHOT</version>
+                        </artifact>
+                    </target>
+
                     <environments>
                         <environment>
                             <os>linux</os>
