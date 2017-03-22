@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Rcp
 Bundle-SymbolicName: com.aiziyuer.rcp;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: example.bundle.Activator
+Bundle-Activator: com.aiziyuer.bundle.Activator
 Bundle-Vendor: AIZIYUER
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.swt;bundle-version="3.6.0",
