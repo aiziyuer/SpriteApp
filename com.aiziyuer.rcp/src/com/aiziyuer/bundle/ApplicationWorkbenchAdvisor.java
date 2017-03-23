@@ -16,7 +16,7 @@ import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
-    private static final String PERSPECTIVE_ID = "example.bundle.perspective";
+    private static final String PERSPECTIVE_ID = "com.aiziyuer.bundle.perspective";
 
     public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
         return new ApplicationWorkbenchWindowAdvisor(configurer);

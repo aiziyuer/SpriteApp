@@ -6,8 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.aiziyuer.bundle.Activator
 Bundle-Vendor: AIZIYUER
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.swt;bundle-version="3.6.0",
- org.eclipse.ui;bundle-version="3.6.0",
+ org.eclipse.ui,
  org.eclipse.equinox.console;bundle-version="1.1.100",
  org.apache.felix.gogo.shell;bundle-version="0.10.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

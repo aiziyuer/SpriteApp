@@ -13,9 +13,10 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            name="RCP Perspective"
             class="com.aiziyuer.bundle.Perspective"
-            id="example.bundle.perspective">
+            fixed="true"
+            id="com.aiziyuer.bundle.perspective"
+            name="RCP Perspective">
       </perspective>
    </extension>
    <extension
@@ -88,6 +89,32 @@
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="M1+6">
       </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            class="com.aiziyuer.bundle.views.SshSessionViewPart"
+            id="com.aiziyuer.bundle.views.SshSessionViewPart"
+            name="SSH Connection">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+         <perspectiveExtension targetID="com.aiziyuer.bundle.perspective">
+         <view
+               closeable="false"
+               id="com.aiziyuer.bundle.views.SshSessionViewPart"
+               minimized="false"
+               moveable="true"
+               ratio="0.3f"
+               relationship="left"
+               relative="org.eclipse.ui.editorss"
+               showTitle="true"
+               standalone="true"
+               visible="true">  
+         </view>  
+         </perspectiveExtension>  
    </extension>
 
 </plugin>
