@@ -20,3 +20,12 @@ Require-Bundle: org.eclipse.core.runtime,
  org.apache.commons.lang3;bundle-version="3.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ org.pushingpixels.trident_1.2.0.v20100204-1500.jar
+Bundle-ClassPath: .,
+ org.pushingpixels.trident_1.2.0.v20100204-1500.jar,
+ org.eclipse.e4.xwt_0.9.1.SNAPSHOT.jar
+Bundle-ClassPath: .,
+ org.pushingpixels.trident_1.2.0.v20100204-1500.jar,
+ org.eclipse.e4.xwt_0.9.1.SNAPSHOT.jar,
+ org.eclipse.e4.xwt.forms_0.9.1.SNAPSHOT.jar

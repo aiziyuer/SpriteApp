@@ -2,10 +2,10 @@ package com.aiziyuer.bundle.views;
 
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.swt.widgets.Button;
+
+import com.aiziyuer.bundle.common.CompositesFactory;
 
 public class SshSessionViewPart extends ViewPart {
 
@@ -23,11 +23,8 @@ public class SshSessionViewPart extends ViewPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-		Composite container = new Composite(parent, SWT.NONE);
-
-		Button btnNewButton = new Button(container, SWT.NONE);
-		btnNewButton.setBounds(80, 92, 105, 32);
-		btnNewButton.setText("New Button");
+		
+		CompositesFactory.buildUI(parent, SshSessionComposite.class, null);
 
 		createActions();
 		initializeToolBar();
