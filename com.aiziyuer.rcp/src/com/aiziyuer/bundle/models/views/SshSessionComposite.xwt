@@ -1,0 +1,19 @@
+<Composite xmlns="http://www.eclipse.org/xwt/presentation"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="com.aiziyuer.bundle.modles.views.SshSessionComposite"
+	xmlns:p1="clr-namespace:com.aiziyuer.bundle.models.views">
+	<Composite.layout>
+		<FillLayout />
+	</Composite.layout>
+
+	<TreeViewer x:Style="BORDER" input="{Binding path=sshSesssionList}">
+		<TreeViewer.tree />
+		
+		<TreeViewer.contentProvider>
+			<p1:SshSessionTreeContentProvider />
+		</TreeViewer.contentProvider>
+		
+		<TreeViewer.labelProvider>
+			<p1:SshSessoinLabelProvider />
+		</TreeViewer.labelProvider>
+	</TreeViewer>
+</Composite>

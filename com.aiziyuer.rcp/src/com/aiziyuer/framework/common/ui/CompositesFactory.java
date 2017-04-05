@@ -1,4 +1,4 @@
-package com.aiziyuer.bundle.common;
+package com.aiziyuer.framework.common.ui;
 
 import java.net.URL;
 import java.util.HashMap;

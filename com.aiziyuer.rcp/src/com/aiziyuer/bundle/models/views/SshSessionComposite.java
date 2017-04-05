@@ -1,9 +1,9 @@
-package com.aiziyuer.bundle.views;
+package com.aiziyuer.bundle.models.views;
 
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 
-import com.aiziyuer.bundle.common.AbstractComposite;
+import com.aiziyuer.framework.common.ui.AbstractComposite;
 
 public class SshSessionComposite extends AbstractComposite {
 

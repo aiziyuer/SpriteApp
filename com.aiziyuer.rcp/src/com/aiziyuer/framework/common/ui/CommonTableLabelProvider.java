@@ -1,4 +1,4 @@
-package com.aiziyuer.bundle.common;
+package com.aiziyuer.framework.common.ui;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.eclipse.jface.viewers.ILabelProviderListener;

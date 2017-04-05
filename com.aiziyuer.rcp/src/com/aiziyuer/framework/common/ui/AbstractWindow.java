@@ -1,11 +1,19 @@
-package com.aiziyuer.bundle.common;
+package com.aiziyuer.framework.common.ui;
 
-import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.SWT;
 
-public abstract class AbstractComposite extends Composite {
+/**
+ * 对话框的抽象类, 每个对话框都会有一个结果
+ *
+ */
+public class AbstractWindow {
 
-	public AbstractComposite(Composite parent, int style) {
-		super(parent, style);
+	/** 对话框的返回值标示对话框的确认结果 */
+	protected int result = SWT.OK;
+	
+
+	public int getResult() {
+		return result;
 	}
 
 	/**
@@ -43,5 +51,4 @@ public abstract class AbstractComposite extends Composite {
 
 		addDataBinding();
 	}
-
 }

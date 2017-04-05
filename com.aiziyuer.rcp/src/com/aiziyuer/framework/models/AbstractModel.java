@@ -1,4 +1,4 @@
-package com.aiziyuer.framework.common;
+package com.aiziyuer.framework.models;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -8,7 +8,7 @@ import java.beans.PropertyChangeSupport;
  * @author aiziyuer
  *
  */
-public abstract class CommonBO {
+public abstract class AbstractModel {
 
 	/**
 	 * 这里的名字是写死的, 如果这里的名字需要变更, 并且在子类中需要使用PropertyChangeSupport特性,

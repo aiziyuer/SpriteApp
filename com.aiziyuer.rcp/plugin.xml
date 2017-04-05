@@ -94,7 +94,7 @@
          point="org.eclipse.ui.views">
       <view
             allowMultiple="false"
-            class="com.aiziyuer.bundle.views.SshSessionViewPart"
+            class="com.aiziyuer.bundle.models.views.SshSessionViewPart"
             id="com.aiziyuer.bundle.views.SshSessionViewPart"
             name="SSH Connection">
       </view>
