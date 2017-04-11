@@ -22,8 +22,11 @@ public class SshSessionTreeContentProvider implements ITreeContentProvider {
 	}
 
 	public Object[] getChildren(Object parentElement) {
-		if (parentElement instanceof SshSession)
-			return ((SshSession) parentElement).getTunnels().toArray();
+		if (parentElement instanceof SshSession) {
+			SshSession sshSession = (SshSession) parentElement;
+			if (sshSession.getStatus() > 0)
+				return sshSession.getTunnels().toArray();
+		}
 		return new Object[0];
 	}
 

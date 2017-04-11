@@ -1,12 +1,24 @@
 <Composite xmlns="http://www.eclipse.org/xwt/presentation"
-	xmlns:x="http://www.eclipse.org/xwt" x:Class="com.aiziyuer.bundle.modles.views.SshSessionComposite"
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="com.aiziyuer.bundle.models.views.SshSessionComposite"
 	xmlns:p1="clr-namespace:com.aiziyuer.bundle.models.views">
 	<Composite.layout>
 		<FillLayout />
 	</Composite.layout>
 
-	<TreeViewer x:Style="BORDER" input="{Binding path=sshSesssionList}">
-		<TreeViewer.tree />
+	<TreeViewer x:Name="sessionTreeViewer" x:Style="BORDER | MULTI" input="{Binding path=sshSesssionList}">
+		<TreeViewer.tree MouseDoubleClickEvent="onMouseDoubleClick" >
+			<TreeViewer.tree.menu>
+				<Menu>
+					<MenuItem text="Connect"/>
+					<MenuItem x:Style="SEPARATOR"/>
+					<MenuItem text="New"/>
+					<MenuItem text="Edit"/>
+					<MenuItem text="Delete"/>
+					<MenuItem x:Style="SEPARATOR"/>
+					<MenuItem text="Close"/>
+				</Menu>
+			</TreeViewer.tree.menu>
+		</TreeViewer.tree>
 		
 		<TreeViewer.contentProvider>
 			<p1:SshSessionTreeContentProvider />

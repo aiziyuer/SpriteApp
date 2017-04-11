@@ -12,6 +12,7 @@ package com.aiziyuer.bundle;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.wb.swt.SWTResourceManager;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -49,6 +50,7 @@ public class Activator extends AbstractUIPlugin {
     public void stop(BundleContext context) throws Exception {
         plugin = null;
         super.stop(context);
+        SWTResourceManager.dispose();
     }
 
     /**
