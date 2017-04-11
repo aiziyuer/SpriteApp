@@ -14,11 +14,11 @@ import com.aiziyuer.bundle.models.SshTunnel;
 import com.aiziyuer.framework.common.ui.CompositesFactory;
 
 public class SshSessionViewPart extends ViewPart {
-	
+
 	private SshSessionDataContext context = new SshSessionDataContext();
-	
+
 	public SshSessionViewPart() {
-		
+
 	}
 
 	public static final String ID = "com.aiziyuer.bundle.views.SshSessionViewPart"; //$NON-NLS-1$
@@ -32,30 +32,73 @@ public class SshSessionViewPart extends ViewPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-		
+
 		List<SshSession> sshSessions = new ArrayList<SshSession>();
-		SshSession sshSession = new SshSession();
-		sshSessions.add(sshSession);
+		{
+			SshSession sshSession = new SshSession();
+			sshSessions.add(sshSession);
+
+			sshSession.setHost("127.0.0.1");
+			sshSession.setPort(22);
+			sshSession.setUserName("lc");
+			sshSession.setUserPassword("password");
+
+			SshTunnel sshTunnel = new SshTunnel();
+			sshTunnel.setLocalTunnelHost("localhost");
+			sshTunnel.setLocalTunnelPort(8080);
+			sshTunnel.setRemoteTunnelHost("localhost");
+			sshTunnel.setRemoteTunnelPort(8080);
+			sshTunnel.setLocal(true);
+
+			List<SshTunnel> sshTunnels = new ArrayList<SshTunnel>();
+			sshTunnels.add(sshTunnel);
+			sshSession.setTunnels(sshTunnels);
+		}
 		
-		sshSession.setHost("127.0.0.1");
-		sshSession.setPort(22);
-		sshSession.setUserName("lc");
-		sshSession.setUserPassword("password");
+		{
+			SshSession sshSession = new SshSession();
+			sshSessions.add(sshSession);
+
+			sshSession.setHost("127.0.0.1");
+			sshSession.setPort(23);
+			sshSession.setUserName("lc");
+			sshSession.setUserPassword("password");
+
+			SshTunnel sshTunnel = new SshTunnel();
+			sshTunnel.setLocalTunnelHost("localhost");
+			sshTunnel.setLocalTunnelPort(8081);
+			sshTunnel.setRemoteTunnelHost("localhost");
+			sshTunnel.setRemoteTunnelPort(8081);
+			sshTunnel.setLocal(true);
+
+			List<SshTunnel> sshTunnels = new ArrayList<SshTunnel>();
+			sshTunnels.add(sshTunnel);
+			sshSession.setTunnels(sshTunnels);
+		}
 		
-		SshTunnel sshTunnel = new SshTunnel();
-		sshTunnel.setLocalTunnelHost("localhost");
-		sshTunnel.setLocalTunnelPort(8080);
-		sshTunnel.setRemoteTunnelHost("localhost");
-		sshTunnel.setRemoteTunnelPort(8080);
-		sshTunnel.setLocal(true);
-		
-		List<SshTunnel> sshTunnels = new ArrayList<SshTunnel>();
-		sshTunnels.add(sshTunnel);
-		sshSession.setTunnels(sshTunnels);
-		
+		{
+			SshSession sshSession = new SshSession();
+			sshSessions.add(sshSession);
+
+			sshSession.setHost("127.0.0.1");
+			sshSession.setPort(24);
+			sshSession.setUserName("lc");
+			sshSession.setUserPassword("password");
+
+			SshTunnel sshTunnel = new SshTunnel();
+			sshTunnel.setLocalTunnelHost("localhost");
+			sshTunnel.setLocalTunnelPort(8082);
+			sshTunnel.setRemoteTunnelHost("localhost");
+			sshTunnel.setRemoteTunnelPort(8082);
+			sshTunnel.setLocal(true);
+
+			List<SshTunnel> sshTunnels = new ArrayList<SshTunnel>();
+			sshTunnels.add(sshTunnel);
+			sshSession.setTunnels(sshTunnels);
+		}
+
 		context.getSshSesssionList().addAll(sshSessions);
-		
-		
+
 		CompositesFactory.buildUI(parent, SshSessionComposite.class, context);
 
 		createActions();
