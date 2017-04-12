@@ -2,6 +2,8 @@ package com.aiziyuer.bundle.models.views;
 
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.jface.databinding.viewers.ViewersObservables;
+import org.eclipse.jface.viewers.AbstractTreeViewer;
+import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -9,7 +11,6 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.xwt.XWT;
 import org.eclipse.xwt.annotation.UI;
 
-import com.aiziyuer.bundle.models.SshSession;
 import com.aiziyuer.bundle.models.SshSessionDataContext;
 import com.aiziyuer.framework.common.ui.AbstractComposite;
 
@@ -48,14 +49,19 @@ public class SshSessionComposite extends AbstractComposite {
 
 	public void onMouseDoubleClick(Event event) {
 
-
 		Object selectedItem = context.getSingleSelectItems();
-		if(selectedItem instanceof SshSession)
-		{
-			((SshSession) selectedItem).setStatus(1);
-		}
+		// if (selectedItem instanceof SshSession) {
+		// ((SshSession) selectedItem).setStatus(1);
+		// sessionTreeViewer.refresh();
+		// }
 
-		sessionTreeViewer.refresh();
+		ITreeContentProvider provider = (ITreeContentProvider) sessionTreeViewer.getContentProvider();
+		if (!provider.hasChildren(selectedItem))
+			return;
 
+		if (sessionTreeViewer.getExpandedState(selectedItem))
+			sessionTreeViewer.collapseToLevel(selectedItem, AbstractTreeViewer.ALL_LEVELS);
+		else
+			sessionTreeViewer.expandToLevel(selectedItem, 1);
 	}
 }

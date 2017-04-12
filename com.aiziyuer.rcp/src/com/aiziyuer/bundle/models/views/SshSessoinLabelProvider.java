@@ -15,11 +15,20 @@ public class SshSessoinLabelProvider extends LabelProvider {
 			SshSession sshSession = (SshSession) element;
 			switch (sshSession.getStatus()) {
 			case 0:
-				return SWTResourceManager.getImage(getClass(), "icons/normal_closed16x16.png");
+				return SWTResourceManager.getImage(getClass(), "icons/connecting16x16.png");
 			case 1:
 				return SWTResourceManager.getImage(getClass(), "icons/connect_success16x16.png");
 			}
+		}
 
+		if (element instanceof SshTunnel) {
+			SshTunnel sshTunnel = (SshTunnel) element;
+			switch (sshTunnel.getStatus()) {
+			case 0:
+				return SWTResourceManager.getImage(getClass(), "icons/tunnel_unknown16x16.png");
+			case 1:
+				return SWTResourceManager.getImage(getClass(), "icons/tunnel_success16x16.png");
+			}
 		}
 
 		return super.getImage(element);

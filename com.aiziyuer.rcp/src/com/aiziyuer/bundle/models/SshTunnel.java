@@ -29,6 +29,17 @@ public class SshTunnel extends AbstractModel {
 
 	/** 远端隧道口 */
 	private int remoteTunnelPort;
+	
+	/** ssh连接状态 */
+	private int status;
+	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 	public String getLabel() {
 		if (StringUtils.isNotEmpty(alias))
