@@ -29,10 +29,20 @@ public class SshTunnel extends AbstractModel {
 
 	/** 远端隧道口 */
 	private int remoteTunnelPort;
-	
+
 	/** ssh连接状态 */
 	private int status;
-	
+
+	private SshSession sshSession;
+
+	public SshSession getSshSession() {
+		return sshSession;
+	}
+
+	public void setSshSession(SshSession sshSession) {
+		this.sshSession = sshSession;
+	}
+
 	public int getStatus() {
 		return status;
 	}

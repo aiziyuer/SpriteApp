@@ -15,7 +15,10 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.xwt.XWT;
 import org.eclipse.xwt.annotation.UI;
 
+import com.aiziyuer.bundle.manager.SshSessionManager;
+import com.aiziyuer.bundle.models.SshSession;
 import com.aiziyuer.bundle.models.SshSessionDataContext;
+import com.aiziyuer.bundle.models.SshTunnel;
 import com.aiziyuer.framework.common.ui.AbstractComposite;
 
 public class SshSessionComposite extends AbstractComposite {
@@ -48,6 +51,20 @@ public class SshSessionComposite extends AbstractComposite {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				log.info("connectMenuItem clicked.");
+
+				Object selectedItem = context.getSingleSelectItems();
+				if (selectedItem instanceof SshSession) {
+					SshSession sshSession = (SshSession) selectedItem;
+					SshSessionManager.INSTANCE.createTunnel(sshSession, null);
+					sessionTreeViewer.refresh(sshSession);
+				}
+
+				else if (selectedItem instanceof SshTunnel) {
+					SshTunnel sshTunnel = (SshTunnel) selectedItem;
+
+					SshSessionManager.INSTANCE.createTunnel(sshTunnel.getSshSession(), sshTunnel);
+					sessionTreeViewer.refresh(sshTunnel.getSshSession());
+				}
 			}
 
 		});
@@ -69,7 +86,7 @@ public class SshSessionComposite extends AbstractComposite {
 			}
 
 		});
-		
+
 		deleteMenuItem.addSelectionListener(new SelectionAdapter() {
 
 			@Override
@@ -78,7 +95,7 @@ public class SshSessionComposite extends AbstractComposite {
 			}
 
 		});
-		
+
 		disconnectMenuItem.addSelectionListener(new SelectionAdapter() {
 
 			@Override

@@ -39,11 +39,12 @@ public class SshSessionViewPart extends ViewPart {
 			sshSessions.add(sshSession);
 
 			sshSession.setHost("127.0.0.1");
-			sshSession.setPort(22);
-			sshSession.setUserName("lc");
-			sshSession.setUserPassword("password");
+			sshSession.setPort(32768);
+			sshSession.setUserName("root");
+			sshSession.setUserPassword("root");
 
 			SshTunnel sshTunnel = new SshTunnel();
+			sshTunnel.setSshSession(sshSession);
 			sshTunnel.setLocalTunnelHost("localhost");
 			sshTunnel.setLocalTunnelPort(8080);
 			sshTunnel.setRemoteTunnelHost("localhost");
@@ -65,6 +66,7 @@ public class SshSessionViewPart extends ViewPart {
 			sshSession.setUserPassword("password");
 
 			SshTunnel sshTunnel = new SshTunnel();
+			sshTunnel.setSshSession(sshSession);
 			sshTunnel.setLocalTunnelHost("localhost");
 			sshTunnel.setLocalTunnelPort(8081);
 			sshTunnel.setRemoteTunnelHost("localhost");
@@ -86,6 +88,7 @@ public class SshSessionViewPart extends ViewPart {
 			sshSession.setUserPassword("password");
 
 			SshTunnel sshTunnel = new SshTunnel();
+			sshTunnel.setSshSession(sshSession);
 			sshTunnel.setLocalTunnelHost("localhost");
 			sshTunnel.setLocalTunnelPort(8082);
 			sshTunnel.setRemoteTunnelHost("localhost");
