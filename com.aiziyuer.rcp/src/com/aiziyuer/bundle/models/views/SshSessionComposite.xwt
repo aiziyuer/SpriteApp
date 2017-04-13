@@ -9,13 +9,13 @@
 		<TreeViewer.tree MouseDoubleClickEvent="onMouseDoubleClick" >
 			<TreeViewer.tree.menu>
 				<Menu>
-					<MenuItem text="Connect"/>
+					<MenuItem text="Connect" image="icons/connect.png" x:Name="connectMenuItem"/>
 					<MenuItem x:Style="SEPARATOR"/>
-					<MenuItem text="New"/>
-					<MenuItem text="Edit"/>
-					<MenuItem text="Delete"/>
+					<MenuItem text="Add" image="icons/add.png" x:Name="addMenuItem"/>
+					<MenuItem text="Edit" image="icons/edit.png" x:Name="editMenuItem"/>
+					<MenuItem text="Delete" image="icons/delete.png" x:Name="deleteMenuItem"/>
 					<MenuItem x:Style="SEPARATOR"/>
-					<MenuItem text="Close"/>
+					<MenuItem text="Disconnect" image="icons/disconnect.png" x:Name="disconnectMenuItem"/>
 				</Menu>
 			</TreeViewer.tree.menu>
 		</TreeViewer.tree>

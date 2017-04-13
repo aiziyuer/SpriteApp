@@ -5,9 +5,12 @@ import org.eclipse.jface.databinding.viewers.ViewersObservables;
 import org.eclipse.jface.viewers.AbstractTreeViewer;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.xwt.XWT;
 import org.eclipse.xwt.annotation.UI;
 
@@ -18,6 +21,9 @@ public class SshSessionComposite extends AbstractComposite {
 
 	@UI
 	private TreeViewer sessionTreeViewer;
+
+	@UI
+	private MenuItem connectMenuItem, addMenuItem, editMenuItem, deleteMenuItem, disconnectMenuItem;
 
 	private SshSessionDataContext context;
 
@@ -33,6 +39,15 @@ public class SshSessionComposite extends AbstractComposite {
 
 	@Override
 	protected void addListener() {
+		
+		connectMenuItem.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				
+			}
+			
+		});
 
 	}
 
