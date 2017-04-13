@@ -1,11 +1,17 @@
 package com.aiziyuer.bundle.models.views;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.SerializationUtils;
 import org.apache.log4j.Logger;
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.jface.databinding.viewers.ViewersObservables;
 import org.eclipse.jface.viewers.AbstractTreeViewer;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
@@ -20,6 +26,7 @@ import com.aiziyuer.bundle.models.SshSession;
 import com.aiziyuer.bundle.models.SshSessionDataContext;
 import com.aiziyuer.bundle.models.SshTunnel;
 import com.aiziyuer.framework.common.ui.AbstractComposite;
+import com.aiziyuer.framework.common.ui.WindowsFactory;
 
 public class SshSessionComposite extends AbstractComposite {
 
@@ -56,7 +63,7 @@ public class SshSessionComposite extends AbstractComposite {
 				if (selectedItem instanceof SshSession) {
 					SshSession sshSession = (SshSession) selectedItem;
 					SshSessionManager.INSTANCE.createTunnel(sshSession, null);
-					sessionTreeViewer.refresh(sshSession);
+					sessionTreeViewer.refresh(selectedItem);
 				}
 
 				else if (selectedItem instanceof SshTunnel) {
@@ -81,8 +88,49 @@ public class SshSessionComposite extends AbstractComposite {
 		editMenuItem.addSelectionListener(new SelectionAdapter() {
 
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent event) {
 				log.info("editMenuItem clicked.");
+				
+				Object selectedItem = context.getSingleSelectItems();
+				if (selectedItem instanceof SshSession) {
+					SshSession selectedSshSession = (SshSession) selectedItem;
+					SshSession sshSession = SerializationUtils.clone(selectedSshSession);
+
+					int result = WindowsFactory.open(getShell(), SessionInfoDialog.class, sshSession);
+					if (result == SWT.OK) {
+						// TODO 这里需要对比数据是否有修改
+						try {
+							List<SshTunnel> sshTunnels = selectedSshSession.getTunnels();
+							BeanUtils.copyProperties(selectedSshSession, sshSession);
+							selectedSshSession.setTunnels(sshTunnels);
+							
+							sessionTreeViewer.refresh(selectedItem);
+						} catch (IllegalAccessException | InvocationTargetException e) {
+							log.error(e);
+						}
+
+					}
+				}
+				else if (selectedItem instanceof SshTunnel) {
+					SshTunnel selectedSshTunnel = (SshTunnel) selectedItem;
+
+					SshTunnel sshTunnel = SerializationUtils.clone(selectedSshTunnel);
+					int result = WindowsFactory.open(getShell(), TunnelInfoDialog.class, sshTunnel);
+					if (result == SWT.OK) {
+
+						// TODO 这里需要对比数据是否有修改
+						try {
+							SshSession sshSession = selectedSshTunnel.getSshSession();
+							BeanUtils.copyProperties(selectedSshTunnel, sshTunnel);
+							selectedSshTunnel.setSshSession(sshSession);
+							sessionTreeViewer.refresh(selectedItem);
+						} catch (IllegalAccessException | InvocationTargetException e) {
+							log.error(e);
+						}
+
+					}
+				}
+
 			}
 
 		});

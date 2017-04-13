@@ -49,7 +49,7 @@ public class SshSessionViewPart extends ViewPart {
 			sshTunnel.setLocalTunnelPort(8080);
 			sshTunnel.setRemoteTunnelHost("localhost");
 			sshTunnel.setRemoteTunnelPort(8080);
-			sshTunnel.setLocal(true);
+			sshTunnel.setLocal(false);
 
 			List<SshTunnel> sshTunnels = new ArrayList<SshTunnel>();
 			sshTunnels.add(sshTunnel);

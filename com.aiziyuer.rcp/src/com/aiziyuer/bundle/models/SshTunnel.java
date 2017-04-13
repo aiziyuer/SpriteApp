@@ -1,10 +1,17 @@
 package com.aiziyuer.bundle.models;
 
+import java.io.Serializable;
+
 import org.apache.commons.lang3.StringUtils;
 
 import com.aiziyuer.framework.models.AbstractModel;
 
-public class SshTunnel extends AbstractModel {
+public class SshTunnel extends AbstractModel implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/** 别名 */
 	private String alias;
@@ -33,7 +40,7 @@ public class SshTunnel extends AbstractModel {
 	/** ssh连接状态 */
 	private int status;
 
-	private SshSession sshSession;
+	private transient SshSession sshSession;
 
 	public SshSession getSshSession() {
 		return sshSession;
