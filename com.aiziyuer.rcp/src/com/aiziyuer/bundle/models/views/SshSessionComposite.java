@@ -50,10 +50,6 @@ public class SshSessionComposite extends AbstractComposite {
 	public void onMouseDoubleClick(Event event) {
 
 		Object selectedItem = context.getSingleSelectItems();
-		// if (selectedItem instanceof SshSession) {
-		// ((SshSession) selectedItem).setStatus(1);
-		// sessionTreeViewer.refresh();
-		// }
 
 		ITreeContentProvider provider = (ITreeContentProvider) sessionTreeViewer.getContentProvider();
 		if (!provider.hasChildren(selectedItem))

@@ -7,7 +7,7 @@ import org.eclipse.jface.viewers.Viewer;
 
 import com.aiziyuer.bundle.models.SshSession;
 
-public class SshSessionTreeContentProvider implements ITreeContentProvider {
+public class SshSessionContentProvider implements ITreeContentProvider {
 
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 	}

@@ -21,7 +21,7 @@
 		</TreeViewer.tree>
 		
 		<TreeViewer.contentProvider>
-			<p1:SshSessionTreeContentProvider />
+			<p1:SshSessionContentProvider />
 		</TreeViewer.contentProvider>
 		
 		<TreeViewer.labelProvider>
