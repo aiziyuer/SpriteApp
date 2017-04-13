@@ -17,6 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jface.databinding;bundle-version="1.7.0",
  org.apache.commons.beanutils;bundle-version="1.8.3",
  org.apache.commons.lang;bundle-version="2.6.0",
- org.apache.commons.lang3;bundle-version="3.1.0"
+ org.apache.commons.lang3;bundle-version="3.1.0",
+ log4j;bundle-version="1.2.9"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

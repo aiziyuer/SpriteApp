@@ -1,5 +1,6 @@
 package com.aiziyuer.bundle.models.views;
 
+import org.apache.log4j.Logger;
 import org.eclipse.core.databinding.beans.BeanProperties;
 import org.eclipse.jface.databinding.viewers.ViewersObservables;
 import org.eclipse.jface.viewers.AbstractTreeViewer;
@@ -18,6 +19,8 @@ import com.aiziyuer.bundle.models.SshSessionDataContext;
 import com.aiziyuer.framework.common.ui.AbstractComposite;
 
 public class SshSessionComposite extends AbstractComposite {
+
+	private Logger log = Logger.getLogger(getClass());
 
 	@UI
 	private TreeViewer sessionTreeViewer;
@@ -39,14 +42,50 @@ public class SshSessionComposite extends AbstractComposite {
 
 	@Override
 	protected void addListener() {
-		
+
 		connectMenuItem.addSelectionListener(new SelectionAdapter() {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				
+				log.info("connectMenuItem clicked.");
 			}
-			
+
+		});
+
+		addMenuItem.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				log.info("addMenuItem clicked.");
+			}
+
+		});
+
+		editMenuItem.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				log.info("editMenuItem clicked.");
+			}
+
+		});
+		
+		deleteMenuItem.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				log.info("deleteMenuItem clicked.");
+			}
+
+		});
+		
+		disconnectMenuItem.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				log.info("disconnectMenuItem clicked.");
+			}
+
 		});
 
 	}

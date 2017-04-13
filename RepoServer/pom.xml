@@ -38,10 +38,7 @@
 									<id>commons-beanutils:commons-beanutils:1.8.3</id>
 								</artifact>
 								<artifact>
-									<id>org.apache.logging.log4j:log4j-api:2.1</id>
-								</artifact>
-								<artifact>
-									<id>org.apache.logging.log4j:log4j-core:2.1</id>
+									<id>log4j:log4j:1.2.9</id>
 								</artifact>
 								<artifact>
 									<id>com.esotericsoftware.yamlbeans:yamlbeans:1.08</id>
