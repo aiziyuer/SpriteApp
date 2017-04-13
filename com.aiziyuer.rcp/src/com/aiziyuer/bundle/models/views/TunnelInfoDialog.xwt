@@ -33,7 +33,7 @@
 			</Label.layoutData>
 		</Label>
 		<Text x:Style="BORDER" bounds="0, 0, 73, 23"
-			text="{Binding path=localTunnelPort, updateSourceTrigger=PropertyChanged}">
+			text="{Binding path=localTunnelPort, updateSourceTrigger=PropertyChanged}" x:Name="localPort">
 			<Text.layoutData>
 				<GridData grabExcessHorizontalSpace="true"
 					horizontalAlignment="FILL" />
@@ -59,7 +59,7 @@
 			</Label.layoutData>
 		</Label>
 		<Text x:Style="BORDER" bounds="0, 0, 73, 23"
-			text="{Binding path=remoteTunnelPort, updateSourceTrigger=PropertyChanged}">
+			text="{Binding path=remoteTunnelPort, updateSourceTrigger=PropertyChanged}" x:Name="remotePort">
 			<Text.layoutData>
 				<GridData grabExcessHorizontalSpace="true"
 					horizontalAlignment="FILL" />
