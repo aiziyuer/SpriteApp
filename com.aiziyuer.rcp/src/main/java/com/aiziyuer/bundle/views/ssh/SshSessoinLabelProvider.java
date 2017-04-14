@@ -1,11 +1,11 @@
-package com.aiziyuer.bundle.models.views;
+package com.aiziyuer.bundle.views.ssh;
 
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import com.aiziyuer.bundle.models.SshSession;
-import com.aiziyuer.bundle.models.SshTunnel;
+import com.aiziyuer.bundle.models.ssh.SshSession;
+import com.aiziyuer.bundle.models.ssh.SshTunnel;
 
 public class SshSessoinLabelProvider extends LabelProvider {
 

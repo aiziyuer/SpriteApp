@@ -7,8 +7,8 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import com.aiziyuer.bundle.models.SshSession;
-import com.aiziyuer.bundle.models.SshTunnel;
+import com.aiziyuer.bundle.models.ssh.SshSession;
+import com.aiziyuer.bundle.models.ssh.SshTunnel;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;

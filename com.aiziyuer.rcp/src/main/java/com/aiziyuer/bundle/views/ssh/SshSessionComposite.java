@@ -1,4 +1,4 @@
-package com.aiziyuer.bundle.models.views;
+package com.aiziyuer.bundle.views.ssh;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -24,9 +24,9 @@ import org.eclipse.xwt.annotation.UI;
 import com.aiziyuer.bundle.framework.common.ui.AbstractComposite;
 import com.aiziyuer.bundle.framework.common.ui.WindowsFactory;
 import com.aiziyuer.bundle.manager.SshSessionManager;
-import com.aiziyuer.bundle.models.SshSession;
-import com.aiziyuer.bundle.models.SshSessionDataContext;
-import com.aiziyuer.bundle.models.SshTunnel;
+import com.aiziyuer.bundle.models.ssh.SshSession;
+import com.aiziyuer.bundle.models.ssh.SshSessionDataContext;
+import com.aiziyuer.bundle.models.ssh.SshTunnel;
 
 public class SshSessionComposite extends AbstractComposite {
 

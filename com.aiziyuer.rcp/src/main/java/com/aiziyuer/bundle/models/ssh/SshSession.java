@@ -1,4 +1,4 @@
-package com.aiziyuer.bundle.models;
+package com.aiziyuer.bundle.models.ssh;
 
 import java.io.Serializable;
 import java.util.List;

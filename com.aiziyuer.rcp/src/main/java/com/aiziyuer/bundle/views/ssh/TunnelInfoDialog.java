@@ -1,4 +1,4 @@
-package com.aiziyuer.bundle.models.views;
+package com.aiziyuer.bundle.views.ssh;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.databinding.UpdateValueStrategy;
@@ -17,7 +17,7 @@ import org.eclipse.xwt.converters.ObjectToString;
 import org.eclipse.xwt.converters.StringToInteger;
 
 import com.aiziyuer.bundle.framework.common.ui.AbstractWindow;
-import com.aiziyuer.bundle.models.SshTunnel;
+import com.aiziyuer.bundle.models.ssh.SshTunnel;
 
 public class TunnelInfoDialog extends AbstractWindow {
 

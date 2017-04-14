@@ -1,4 +1,4 @@
-package com.aiziyuer.bundle.models;
+package com.aiziyuer.bundle.models.ssh;
 
 import org.eclipse.core.databinding.observable.list.WritableList;
 

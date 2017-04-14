@@ -1,5 +1,5 @@
 <Shell xmlns="http://www.eclipse.org/xwt/presentation" xmlns:x="http://www.eclipse.org/xwt"
-	x:Class="com.aiziyuer.bundle.models.views.SessionInfoDialog" text="SessionInfo Editor"
+	x:Class="com.aiziyuer.bundle.views.ssh.SessionInfoDialog" text="SessionInfo Editor"
 	Size="300, 240" x:Name="shell" image="icons/logo.png">
 	<Shell.layout>
 		<GridLayout />

@@ -1,6 +1,6 @@
 <Composite xmlns="http://www.eclipse.org/xwt/presentation"
-	xmlns:x="http://www.eclipse.org/xwt" x:Class="com.aiziyuer.bundle.models.views.SshSessionComposite"
-	xmlns:p1="clr-namespace:com.aiziyuer.bundle.models.views">
+	xmlns:x="http://www.eclipse.org/xwt" x:Class="com.aiziyuer.bundle.views.ssh.SshSessionComposite"
+	xmlns:p1="clr-namespace:com.aiziyuer.bundle.views.ssh">
 	<Composite.layout>
 		<FillLayout />
 	</Composite.layout>

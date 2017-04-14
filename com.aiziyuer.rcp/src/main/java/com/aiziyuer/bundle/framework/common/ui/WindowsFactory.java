@@ -2,6 +2,7 @@ package com.aiziyuer.bundle.framework.common.ui;
 
 import java.net.URL;
 
+import org.apache.log4j.Logger;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
@@ -14,6 +15,8 @@ import org.eclipse.xwt.XWT;
  *
  */
 public class WindowsFactory {
+
+	private static final Logger log = Logger.getLogger(WindowsFactory.class);
 
 	/**
 	 * 打开对话框
@@ -72,7 +75,7 @@ public class WindowsFactory {
 			}
 
 		} catch (Exception e) {
-//			log.error(e);
+			log.error(e);
 		}
 
 		return shell;

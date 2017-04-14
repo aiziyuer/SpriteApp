@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.xwt.DefaultLoadingContext;
 import org.eclipse.xwt.IConstants;
@@ -11,6 +12,8 @@ import org.eclipse.xwt.IXWTLoader;
 import org.eclipse.xwt.XWT;
 
 public class CompositesFactory {
+
+	private static Logger log = Logger.getLogger(CompositesFactory.class);
 
 	public static <T extends AbstractComposite> Composite buildUI(Composite parent, Class<T> klass,
 			Object dataContext) {
@@ -32,7 +35,7 @@ public class CompositesFactory {
 			area.doLast();
 
 		} catch (Throwable e) {
-//			log.error("Unable to load " + name, e);
+			log.error("Unable to load " + name, e);
 		}
 
 		return area;

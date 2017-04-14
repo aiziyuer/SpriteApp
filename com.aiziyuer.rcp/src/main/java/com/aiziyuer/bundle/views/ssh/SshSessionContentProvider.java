@@ -1,11 +1,11 @@
-package com.aiziyuer.bundle.models.views;
+package com.aiziyuer.bundle.views.ssh;
 
 import java.util.List;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import com.aiziyuer.bundle.models.SshSession;
+import com.aiziyuer.bundle.models.ssh.SshSession;
 
 public class SshSessionContentProvider implements ITreeContentProvider {
 

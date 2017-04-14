@@ -1,4 +1,4 @@
-package com.aiziyuer.bundle.models.views;
+package com.aiziyuer.bundle.views.ssh;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
 import com.aiziyuer.bundle.framework.common.ui.CompositesFactory;
-import com.aiziyuer.bundle.models.SshSession;
-import com.aiziyuer.bundle.models.SshSessionDataContext;
-import com.aiziyuer.bundle.models.SshTunnel;
+import com.aiziyuer.bundle.models.ssh.SshSession;
+import com.aiziyuer.bundle.models.ssh.SshSessionDataContext;
+import com.aiziyuer.bundle.models.ssh.SshTunnel;
 
 public class SshSessionViewPart extends ViewPart {
 
