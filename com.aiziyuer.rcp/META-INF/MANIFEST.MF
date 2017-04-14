@@ -22,3 +22,4 @@ Require-Bundle: org.eclipse.core.runtime,
  com.jcraft.jsch;bundle-version="0.1.53"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+

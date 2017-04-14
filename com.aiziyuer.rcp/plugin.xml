@@ -98,6 +98,11 @@
             id="com.aiziyuer.bundle.views.SshSessionViewPart"
             name="SSH Connection">
       </view>
+      <view
+            class="com.aiziyuer.bundle.views.hosts.HostListViewPart"
+            id="com.aiziyuer.bundle.views.HostListViewPart"
+            name="HostListViewPart">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
@@ -113,6 +118,13 @@
                showTitle="true"
                standalone="true"
                visible="true">  
+         </view>
+         <view
+               id="com.aiziyuer.bundle.views.HostListViewPart"
+               minimized="false"
+               relationship="stack"
+               relative="com.aiziyuer.bundle.views.SshSessionViewPart"
+               visible="true">
          </view>  
          </perspectiveExtension>  
    </extension>
