@@ -38,13 +38,22 @@
 									<id>commons-beanutils:commons-beanutils:1.8.3</id>
 								</artifact>
 								<artifact>
-									<id>log4j:log4j:1.2.9</id>
+									<id>log4j:log4j:1.2.17</id>
 								</artifact>
 								<artifact>
 									<id>com.esotericsoftware.yamlbeans:yamlbeans:1.08</id>
 								</artifact>
 								<artifact>
 									<id>com.jcraft:jsch:0.1.53</id>
+								</artifact>
+								<artifact>
+									<id>org.apache.sshd:sshd-core:jar:1.4.0</id>
+								</artifact>
+								<artifact>
+									<id>org.slf4j:slf4j-log4j12:jar:1.7.22</id>
+								</artifact>
+								<artifact>
+									<id>org.slf4j:slf4j-api:jar:1.7.22</id>
 								</artifact>
 							</artifacts>
 						</configuration>

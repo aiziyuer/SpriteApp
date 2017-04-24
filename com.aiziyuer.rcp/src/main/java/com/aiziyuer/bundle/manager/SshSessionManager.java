@@ -1,11 +1,20 @@
 package com.aiziyuer.bundle.manager;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
+import org.apache.sshd.client.SshClient;
+import org.apache.sshd.client.session.ClientSession;
+import org.apache.sshd.common.channel.ChannelListener;
+import org.apache.sshd.common.session.SessionListener;
+import org.apache.sshd.common.util.io.IoUtils;
+import org.apache.sshd.common.util.net.SshdSocketAddress;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.aiziyuer.bundle.models.ssh.SshSession;
 import com.aiziyuer.bundle.models.ssh.SshTunnel;
@@ -17,7 +26,7 @@ public class SshSessionManager {
 
 	public static final SshSessionManager INSTANCE = new SshSessionManager();
 
-	private Logger log = Logger.getLogger(getClass());
+	private Logger log = LoggerFactory.getLogger(getClass());
 
 	private SshSessionManager() {
 	}
@@ -32,7 +41,53 @@ public class SshSessionManager {
 
 	}
 
+	public void createTunnel1(SshSession sessionInfoBO, SshTunnel tunnelBO) {
+		SshClient client = SshClient.setUpDefaultClient();
+		client.start();
+		client.addSessionListener(new SessionListener() {
+
+			@Override
+			public void sessionClosed(org.apache.sshd.common.session.Session session) {
+				SessionListener.super.sessionClosed(session);
+
+			}
+
+		});
+
+		client.addChannelListener(new ChannelListener() {
+
+		});
+
+		try (ClientSession session = client
+				.connect(sessionInfoBO.getUserName(), sessionInfoBO.getHost(), sessionInfoBO.getPort())
+				.verify(7L, TimeUnit.SECONDS).getSession()) {
+
+			session.addPasswordIdentity(sessionInfoBO.getUserPassword());
+			session.auth().verify(5L, TimeUnit.SECONDS);
+
+			if (tunnelBO == null)
+				return;
+
+			if (tunnelBO.isLocal())
+				session.startLocalPortForwarding(
+						new SshdSocketAddress(tunnelBO.getLocalTunnelHost(), tunnelBO.getLocalTunnelPort()),
+						new SshdSocketAddress(tunnelBO.getRemoteTunnelHost(), tunnelBO.getRemoteTunnelPort()));
+			else
+				session.startRemotePortForwarding(
+						new SshdSocketAddress(tunnelBO.getRemoteTunnelHost(), tunnelBO.getRemoteTunnelPort()),
+						new SshdSocketAddress(tunnelBO.getLocalTunnelHost(), tunnelBO.getLocalTunnelPort()));
+
+		} catch (IOException e) {
+			log.error("createTunnel has error.", e);
+			IoUtils.closeQuietly(client);
+		}
+
+	}
+
 	public void createTunnel(SshSession sessionInfoBO, SshTunnel tunnelBO) {
+
+		//createTunnel1(sessionInfoBO, tunnelBO);
+		
 
 		String name = sessionInfoBO.getUserName();
 		String host = sessionInfoBO.getHost();
@@ -65,8 +120,8 @@ public class SshSessionManager {
 				log.error("create session error:", e);
 			}
 		}
-		
-		if(session == null || tunnelBO == null)
+
+		if (session == null || tunnelBO == null)
 			return;
 
 		if (tunnelBO.isLocal())
