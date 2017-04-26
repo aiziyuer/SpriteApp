@@ -2,10 +2,12 @@ package com.aiziyuer.bundle.manager;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sshd.client.SshClient;
 import org.apache.sshd.client.session.ClientSession;
 import org.apache.sshd.common.forward.PortForwardingEventListener;
@@ -16,6 +18,7 @@ import org.apache.sshd.common.util.net.SshdSocketAddress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.aiziyuer.bundle.models.ssh.ConnectStatus;
 import com.aiziyuer.bundle.models.ssh.SshSession;
 import com.aiziyuer.bundle.models.ssh.SshTunnel;
 
@@ -50,7 +53,7 @@ public class SshSessionManager {
 		public void sessionClosed(Session session) {
 
 			// 设置成离线状态
-			sessionInfoBO.setStatus(0);
+			sessionInfoBO.setStatus(ConnectStatus.DIS_CONNECTED);
 
 			log.info("session %s disconnect.", session);
 		}
@@ -60,7 +63,7 @@ public class SshSessionManager {
 
 			if (Event.Authenticated == event) {
 				// 设置为认证通过状态
-				sessionInfoBO.setStatus(1);
+				sessionInfoBO.setStatus(ConnectStatus.CONNECTED);
 
 				log.info("session %s authenticated.", session);
 			}
@@ -79,20 +82,65 @@ public class SshSessionManager {
 		public void establishedExplicitTunnel(Session session, SshdSocketAddress local, SshdSocketAddress remote,
 				boolean localForwarding, SshdSocketAddress boundAddress, Throwable reason) throws IOException {
 
-			String keystr = String.format("%s:%d %s %s:%d", local.getHostName(), local.getPort(),
-					localForwarding ? "->" : "<-", remote.getHostName(), remote.getPort());
+			String localHostName = local.getHostName();
+			int localport = local.getPort();
+			String remoteHostName = remote.getHostName();
+			int remotePort = remote.getPort();
 
-			List<SshTunnel> tunnels = sessionInfoBO.getTunnels();
-			int index = tunnels.indexOf(new SshTunnel(local.getHostName(), local.getPort(), localForwarding,
-					remote.getHostName(), remote.getPort()));
-			if (index < 0) {
-				log.warn("%s not found, so don't update state.", keystr);
+			SshTunnel foundSshTunnel = null;
+			Iterator<SshTunnel> it = sessionInfoBO.getTunnels().iterator();
+			while (it.hasNext()) {
+				SshTunnel tmpSshTunnel = it.next();
+				boolean isSameLocalHost = StringUtils.equals(tmpSshTunnel.getLocalTunnelHost(), localHostName);
+				boolean isSameLocalPort = tmpSshTunnel.getLocalTunnelPort() == localport;
+				boolean isSameDirection = tmpSshTunnel.isLocal() == localForwarding;
+				boolean isSameRemoteHost = StringUtils.equals(tmpSshTunnel.getRemoteTunnelHost(), remoteHostName);
+				boolean isSameRemotePort = tmpSshTunnel.getRemoteTunnelPort() == remotePort;
+				boolean isSameTunnel = isSameLocalHost && isSameLocalPort && isSameDirection && isSameRemoteHost
+						&& isSameRemotePort;
+
+				if (isSameTunnel) {
+					foundSshTunnel = tmpSshTunnel;
+					break;
+				}
+			}
+
+			if (foundSshTunnel == null) {
+				log.warn("(%s:%d %s %s:%d) not found, so don't update state.", local.getHostName(), local.getPort(),
+						localForwarding ? "->" : "<-", remote.getHostName(), remote.getPort());
 				return;
 			}
 
-			SshTunnel sshTunnel = tunnels.get(index);
-			sshTunnel.setStatus(1);
+			foundSshTunnel.setStatus(ConnectStatus.CONNECTED);
 
+		}
+
+		@Override
+		public void tornDownExplicitTunnel(Session session, SshdSocketAddress address, boolean localForwarding,
+				Throwable reason) throws IOException {
+
+			String localHostName = address.getHostName();
+			int localport = address.getPort();
+
+			SshTunnel foundSshTunnel = null;
+			Iterator<SshTunnel> it = sessionInfoBO.getTunnels().iterator();
+			while (it.hasNext()) {
+				SshTunnel tmpSshTunnel = it.next();
+				boolean isSameHost = StringUtils.equals(tmpSshTunnel.getLocalTunnelHost(), localHostName);
+				boolean isSamePort = tmpSshTunnel.getLocalTunnelPort() == localport;
+				boolean isSameDirection = tmpSshTunnel.isLocal() == localForwarding;
+				boolean isSameTunnel = isSameHost && isSamePort && isSameDirection;
+				if (isSameTunnel) {
+					foundSshTunnel = tmpSshTunnel;
+					break;
+				}
+			}
+
+			if (foundSshTunnel == null) {
+				log.warn("%s:%d not found, so don't update status.", localHostName, localport);
+			}
+
+			foundSshTunnel.setStatus(ConnectStatus.DIS_CONNECTED);
 		}
 
 	}
@@ -125,7 +173,7 @@ public class SshSessionManager {
 				session.addPortForwardingEventListener(new MyPortForwardListener(sessionInfoBO));
 
 			} catch (IOException e) {
-				log.error("createTunnel has error.", e);
+				log.error("createSession has error.", e);
 				IoUtils.closeQuietly(client);
 			}
 
@@ -148,7 +196,6 @@ public class SshSessionManager {
 						new SshdSocketAddress(tunnelBO.getLocalTunnelHost(), tunnelBO.getLocalTunnelPort()));
 		} catch (IOException e) {
 			log.error("createTunnel has error.", e);
-			IoUtils.closeQuietly(session);
 		}
 
 	}

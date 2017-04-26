@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.aiziyuer.bundle.framework.models.AbstractModel;
 
-public class SshSession extends AbstractModel implements Serializable{
+public class SshSession extends AbstractModel implements Serializable {
 
 	/**
 	 * 
@@ -30,7 +30,7 @@ public class SshSession extends AbstractModel implements Serializable{
 	private String userPassword;
 
 	/** ssh连接状态 */
-	private int status;
+	private ConnectStatus status = ConnectStatus.DIS_CONNECTED;
 
 	private transient List<SshTunnel> tunnels;
 
@@ -72,12 +72,14 @@ public class SshSession extends AbstractModel implements Serializable{
 		this.userPassword = userPassword;
 	}
 
-	public int getStatus() {
+	public ConnectStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(ConnectStatus status) {
+		Object oldValue = this.status;
 		this.status = status;
+		propertySupport.firePropertyChange("status", oldValue, this.status);
 	}
 
 	public List<SshTunnel> getTunnels() {

@@ -1,5 +1,6 @@
 package com.aiziyuer.bundle.views.ssh;
 
+import java.beans.PropertyChangeEvent;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.xwt.XWT;
@@ -63,14 +65,12 @@ public class SshSessionComposite extends AbstractComposite {
 				if (selectedItem instanceof SshSession) {
 					SshSession sshSession = (SshSession) selectedItem;
 					SshSessionManager.INSTANCE.createTunnel(sshSession, null);
-					sessionTreeViewer.refresh(selectedItem);
 				}
 
 				else if (selectedItem instanceof SshTunnel) {
 					SshTunnel sshTunnel = (SshTunnel) selectedItem;
 
 					SshSessionManager.INSTANCE.createTunnel(sshTunnel.getSshSession(), sshTunnel);
-					sessionTreeViewer.refresh(sshTunnel.getSshSession());
 				}
 			}
 
@@ -90,7 +90,7 @@ public class SshSessionComposite extends AbstractComposite {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
 				log.info("editMenuItem clicked.");
-				
+
 				Object selectedItem = context.getSingleSelectItems();
 				if (selectedItem instanceof SshSession) {
 					SshSession selectedSshSession = (SshSession) selectedItem;
@@ -103,15 +103,14 @@ public class SshSessionComposite extends AbstractComposite {
 							List<SshTunnel> sshTunnels = selectedSshSession.getTunnels();
 							BeanUtils.copyProperties(selectedSshSession, sshSession);
 							selectedSshSession.setTunnels(sshTunnels);
-							
+
 							sessionTreeViewer.refresh(selectedItem);
 						} catch (IllegalAccessException | InvocationTargetException e) {
 							log.error(e);
 						}
 
 					}
-				}
-				else if (selectedItem instanceof SshTunnel) {
+				} else if (selectedItem instanceof SshTunnel) {
 					SshTunnel selectedSshTunnel = (SshTunnel) selectedItem;
 
 					SshTunnel sshTunnel = SerializationUtils.clone(selectedSshTunnel);
@@ -153,6 +152,34 @@ public class SshSessionComposite extends AbstractComposite {
 
 		});
 
+		// 为所有的模型数据添加状态监听, 即状态改变时触发UI刷新, 后续如果涉及模型刷新, 也需要为新增的模型对象添加监听
+		for (Object o : context.getSshSesssionList()) {
+			if (!(o instanceof SshSession))
+				continue;
+
+			SshSession sshSession = (SshSession) o;
+			sshSession.addPropertyChangeListener("status", (PropertyChangeEvent evt) -> {
+
+				Display.getDefault().asyncExec(() -> {
+					sessionTreeViewer.refresh(evt.getSource());
+				});
+
+			});
+
+			for (Object t : sshSession.getTunnels()) {
+				if (!(t instanceof SshTunnel))
+					continue;
+
+				SshTunnel sshTunnel = (SshTunnel) t;
+				sshTunnel.addPropertyChangeListener("status", (PropertyChangeEvent evt) -> {
+
+					Display.getDefault().asyncExec(() -> {
+						sessionTreeViewer.refresh(evt.getSource());
+					});
+
+				});
+			}
+		}
 	}
 
 	@Override

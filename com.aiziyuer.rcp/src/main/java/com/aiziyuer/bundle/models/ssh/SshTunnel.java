@@ -38,7 +38,7 @@ public class SshTunnel extends AbstractModel implements Serializable {
 	private int remoteTunnelPort;
 
 	/** ssh连接状态 */
-	private int status;
+	private ConnectStatus status = ConnectStatus.DIS_CONNECTED;
 
 	private transient SshSession sshSession;
 
@@ -63,12 +63,14 @@ public class SshTunnel extends AbstractModel implements Serializable {
 		this.sshSession = sshSession;
 	}
 
-	public int getStatus() {
+	public ConnectStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(ConnectStatus status) {
+		Object oldValue = this.status;
 		this.status = status;
+		propertySupport.firePropertyChange("status", oldValue, this.status);
 	}
 
 	public String getLabel() {
@@ -126,24 +128,5 @@ public class SshTunnel extends AbstractModel implements Serializable {
 		this.remoteTunnelPort = remoteTunnelPort;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-
-		if (obj == null || !(obj instanceof SshTunnel))
-			return false;
-
-		SshTunnel other = (SshTunnel) obj;
-
-		if (!StringUtils.equals(localTunnelHost, other.localTunnelHost) || localTunnelPort != other.localTunnelPort)
-			return false;
-
-		if (local != other.local)
-			return false;
-
-		if (!StringUtils.equals(remoteTunnelHost, other.remoteTunnelHost) || remoteTunnelPort != other.remoteTunnelPort)
-			return false;
-
-		return true;
-	}
 
 }
