@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.aiziyuer.bundle.framework.models.AbstractModel;
 
-public class SshTunnel extends AbstractModel implements Serializable{
+public class SshTunnel extends AbstractModel implements Serializable {
 
 	/**
 	 * 
@@ -41,6 +41,19 @@ public class SshTunnel extends AbstractModel implements Serializable{
 	private int status;
 
 	private transient SshSession sshSession;
+
+	public SshTunnel() {
+
+	}
+
+	public SshTunnel(String localTunnelHost, int localTunnelPort, boolean local, String remoteTunnelHost,
+			int remoteTunnelPort) {
+		this.localTunnelHost = localTunnelHost;
+		this.localTunnelPort = localTunnelPort;
+		this.local = local;
+		this.remoteTunnelHost = remoteTunnelHost;
+		this.remoteTunnelPort = remoteTunnelPort;
+	}
 
 	public SshSession getSshSession() {
 		return sshSession;
@@ -111,6 +124,26 @@ public class SshTunnel extends AbstractModel implements Serializable{
 
 	public void setRemoteTunnelPort(int remoteTunnelPort) {
 		this.remoteTunnelPort = remoteTunnelPort;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		if (obj == null || !(obj instanceof SshTunnel))
+			return false;
+
+		SshTunnel other = (SshTunnel) obj;
+
+		if (!StringUtils.equals(localTunnelHost, other.localTunnelHost) || localTunnelPort != other.localTunnelPort)
+			return false;
+
+		if (local != other.local)
+			return false;
+
+		if (!StringUtils.equals(remoteTunnelHost, other.remoteTunnelHost) || remoteTunnelPort != other.remoteTunnelPort)
+			return false;
+
+		return true;
 	}
 
 }

@@ -38,7 +38,7 @@ public class SshSessionViewPart extends ViewPart {
 			SshSession sshSession = new SshSession();
 			sshSessions.add(sshSession);
 
-			sshSession.setHost("192.168.1.106");
+			sshSession.setHost("192.168.1.107");
 			sshSession.setPort(22);
 			sshSession.setUserName("root");
 			sshSession.setUserPassword("ziyu");

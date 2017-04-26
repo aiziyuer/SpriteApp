@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.sshd.client.SshClient;
 import org.apache.sshd.client.session.ClientSession;
+import org.apache.sshd.common.forward.PortForwardingEventListener;
 import org.apache.sshd.common.session.Session;
 import org.apache.sshd.common.session.SessionListener;
 import org.apache.sshd.common.util.io.IoUtils;
@@ -67,6 +68,35 @@ public class SshSessionManager {
 		}
 	}
 
+	public class MyPortForwardListener implements PortForwardingEventListener {
+		private final SshSession sessionInfoBO;
+
+		public MyPortForwardListener(SshSession sessionInfoBO) {
+			this.sessionInfoBO = sessionInfoBO;
+		}
+
+		@Override
+		public void establishedExplicitTunnel(Session session, SshdSocketAddress local, SshdSocketAddress remote,
+				boolean localForwarding, SshdSocketAddress boundAddress, Throwable reason) throws IOException {
+
+			String keystr = String.format("%s:%d %s %s:%d", local.getHostName(), local.getPort(),
+					localForwarding ? "->" : "<-", remote.getHostName(), remote.getPort());
+
+			List<SshTunnel> tunnels = sessionInfoBO.getTunnels();
+			int index = tunnels.indexOf(new SshTunnel(local.getHostName(), local.getPort(), localForwarding,
+					remote.getHostName(), remote.getPort()));
+			if (index < 0) {
+				log.warn("%s not found, so don't update state.", keystr);
+				return;
+			}
+
+			SshTunnel sshTunnel = tunnels.get(index);
+			sshTunnel.setStatus(1);
+
+		}
+
+	}
+
 	public void createTunnel(SshSession sessionInfoBO, SshTunnel tunnelBO) {
 
 		String keyStr = String.format("%s@%s:%d", sessionInfoBO.getUserName(), sessionInfoBO.getHost(),
@@ -91,6 +121,8 @@ public class SshSessionManager {
 				// 如果登陆成功就记录session
 				if (session.isAuthenticated())
 					sessionMap.put(keyStr, session);
+
+				session.addPortForwardingEventListener(new MyPortForwardListener(sessionInfoBO));
 
 			} catch (IOException e) {
 				log.error("createTunnel has error.", e);
