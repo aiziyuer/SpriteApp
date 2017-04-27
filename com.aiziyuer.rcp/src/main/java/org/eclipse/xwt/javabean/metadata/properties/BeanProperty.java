@@ -21,7 +21,6 @@ import org.eclipse.xwt.core.IBinding;
 import org.eclipse.xwt.internal.utils.ObjectUtil;
 import org.eclipse.xwt.internal.utils.UserData;
 import org.eclipse.xwt.metadata.ILoadingType;
-import org.eclipse.xwt.metadata.IProperty;
 
 public class BeanProperty extends AbstractProperty {
 	protected PropertyDescriptor descriptor;

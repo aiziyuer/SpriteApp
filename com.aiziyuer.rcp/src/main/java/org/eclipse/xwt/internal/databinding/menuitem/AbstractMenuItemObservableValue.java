@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.MenuItem;
  * 
  * @author yyang (yves.yang@soyatec.com)
  */
+@SuppressWarnings("all")
 public abstract class AbstractMenuItemObservableValue extends AbstractObservableValue {
 	private final MenuItem menuItem;
 

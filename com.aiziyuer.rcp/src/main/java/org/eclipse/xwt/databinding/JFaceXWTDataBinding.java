@@ -48,6 +48,7 @@ import org.eclipse.xwt.metadata.IProperty;
  * 
  * @author yyang (yves.yang@soyatec.com)
  */
+@SuppressWarnings("all")
 public class JFaceXWTDataBinding {
 	static final String ENABLED = "enabled";
 	static final String SELECTION = "selection";

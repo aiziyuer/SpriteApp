@@ -24,7 +24,6 @@ import org.eclipse.swt.widgets.Widget;
 import org.eclipse.xwt.IDataProvider;
 import org.eclipse.xwt.XWT;
 import org.eclipse.xwt.XWTException;
-import org.eclipse.xwt.core.IBinding;
 import org.eclipse.xwt.databinding.EventPropertyObservableValue;
 import org.eclipse.xwt.databinding.JFaceXWTDataBinding;
 import org.eclipse.xwt.databinding.ListToArrayObservableValue;

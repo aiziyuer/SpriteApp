@@ -23,6 +23,7 @@ import org.eclipse.xwt.internal.core.Core;
  * @since 1.0
  * @author yyang
  */
+@SuppressWarnings("all")
 public class Element extends DocumentObject {
 
 	private static final String[] EMPTY_STRING_ARRAY = new String[0];

@@ -18,7 +18,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.xwt.metadata.ILoadingType;
-import org.eclipse.xwt.metadata.IProperty;
 
 /**
  * IViewer property

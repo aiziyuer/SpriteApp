@@ -23,6 +23,7 @@ import org.eclipse.xwt.XWT;
  * 
  * @author jliu (jin.liu@soyatec.com)
  */
+@SuppressWarnings("all")
 public abstract class XWTObservableValue extends AbstractObservableValue implements IObserving {
 
 	private Object observed;

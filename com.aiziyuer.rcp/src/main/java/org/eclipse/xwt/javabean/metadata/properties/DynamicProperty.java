@@ -15,13 +15,14 @@ import java.lang.reflect.Method;
 
 import org.eclipse.xwt.internal.utils.ObjectUtil;
 import org.eclipse.xwt.metadata.ILoadingType;
-import org.eclipse.xwt.metadata.IProperty;
 
 /**
  * This class is used to extend the Java Bean model
  * 
  * @author yyang (yves.yang@soyatec.com)
  */
+
+@SuppressWarnings("all")
 public class DynamicProperty extends AbstractProperty {
 
 	private final Method setter;

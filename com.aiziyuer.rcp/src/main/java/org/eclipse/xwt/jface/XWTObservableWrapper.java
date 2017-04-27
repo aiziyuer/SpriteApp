@@ -29,6 +29,7 @@ import org.eclipse.core.databinding.property.value.IValueProperty;
 import org.eclipse.xwt.internal.core.BindingExpressionPath;
 import org.eclipse.xwt.internal.core.ScopeManager;
 
+@SuppressWarnings("all")
 public class XWTObservableWrapper implements IObservableMap {
 	private IObservableMap delegate;
 

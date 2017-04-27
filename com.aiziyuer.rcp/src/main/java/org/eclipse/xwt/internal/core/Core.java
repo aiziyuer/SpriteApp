@@ -66,6 +66,7 @@ import org.eclipse.xwt.internal.xml.IElementCache;
 import org.eclipse.xwt.javabean.ValueConvertorRegister;
 import org.eclipse.xwt.metadata.IMetaclass;
 
+@SuppressWarnings("all")
 public class Core {
 	static public final Object[] EMPTY_ARRAY = new Object[0];
 	public static final String[] EMPTY_STRING_ARRAY = new String[0];

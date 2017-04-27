@@ -14,6 +14,7 @@ import java.io.Serializable;
 
 import org.eclipse.xwt.XWTException;
 
+@SuppressWarnings("all")
 public class TimeSpan implements Serializable, Comparable {
 
 	public static final long TicksPerMillisecond = 10000; // scale

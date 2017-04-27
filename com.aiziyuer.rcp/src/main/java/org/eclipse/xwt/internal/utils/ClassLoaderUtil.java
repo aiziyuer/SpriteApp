@@ -19,6 +19,7 @@ import org.eclipse.xwt.ILoadingContext;
 import org.eclipse.xwt.internal.xml.DocumentObject;
 import org.eclipse.xwt.internal.xml.Element;
 
+@SuppressWarnings("all")
 public class ClassLoaderUtil {
 	static final String[] DefaultPackages = new String[] {
 	/*

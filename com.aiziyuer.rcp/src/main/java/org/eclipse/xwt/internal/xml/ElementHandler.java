@@ -35,6 +35,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * @author yyang
  * @version 1.0
  */
+@SuppressWarnings("all")
 class ElementHandler extends DefaultHandler implements ContentHandler {
 	private Stack<StringBuffer> bufferStack = new Stack<StringBuffer>();
 	private static final String[] BINDING_PROPERTIES = new String[] {

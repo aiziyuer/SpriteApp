@@ -12,7 +12,6 @@
 package org.eclipse.xwt.converters;
 
 import org.eclipse.core.databinding.conversion.IConverter;
-import org.eclipse.xwt.animation.Duration;
 import org.eclipse.xwt.animation.TimeSpan;
 
 /**

@@ -33,6 +33,7 @@ import org.eclipse.xwt.metadata.IProperty;
 /**
  * @author jliu (jin.liu@soyatec.com)
  */
+@SuppressWarnings("all")
 public class ObjectDataProvider extends AbstractDataProvider implements
 		IObjectDataProvider {
 	static DataModelService dataModelService = new DataModelService() {

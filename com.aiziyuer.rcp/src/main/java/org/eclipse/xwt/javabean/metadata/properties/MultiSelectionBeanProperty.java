@@ -20,7 +20,6 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.xwt.metadata.ILoadingType;
-import org.eclipse.xwt.metadata.IProperty;
 
 /**
  * Handle manually the type conversion. Maybe it can be done using the

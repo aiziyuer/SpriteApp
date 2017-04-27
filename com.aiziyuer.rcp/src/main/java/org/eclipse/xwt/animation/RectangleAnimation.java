@@ -21,6 +21,7 @@ import org.pushingpixels.trident.TridentConfig;
  * 
  * @author yyang
  */
+@SuppressWarnings("all")
 public class RectangleAnimation extends AnimationTimeline {
 	private Rectangle from;
 	private Rectangle to;

@@ -21,6 +21,7 @@ import org.pushingpixels.trident.TridentConfig;
  * 
  * @author yyang
  */
+@SuppressWarnings("all")
 public class PointAnimation extends AnimationTimeline {
 	private Point from;
 	private Point to;

@@ -14,6 +14,7 @@ import org.eclipse.core.databinding.conversion.IConverter;
 /**
  * @author jliu (jin.liu@soyatec.com)
  */
+@SuppressWarnings("all")
 public class StringToEnum implements IConverter {
 
 	private Class<?> toType;

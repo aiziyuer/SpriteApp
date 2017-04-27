@@ -53,6 +53,7 @@ import org.eclipse.xwt.metadata.IProperty;
  * 
  * @author yyang
  */
+@SuppressWarnings("all")
 public class XWT {
 
 	private static List<IXWTInitializer> initializers = new ArrayList<IXWTInitializer>();

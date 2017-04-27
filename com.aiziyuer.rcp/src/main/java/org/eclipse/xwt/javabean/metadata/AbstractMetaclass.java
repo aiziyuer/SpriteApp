@@ -26,7 +26,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.core.databinding.validation.ValidationStatus;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Region;
 import org.eclipse.swt.widgets.Composite;
@@ -42,7 +41,6 @@ import org.eclipse.xwt.XWT;
 import org.eclipse.xwt.XWTException;
 import org.eclipse.xwt.XWTMaps;
 import org.eclipse.xwt.core.IBinding;
-import org.eclipse.xwt.internal.core.Binding;
 import org.eclipse.xwt.internal.utils.UserData;
 import org.eclipse.xwt.javabean.metadata.properties.BeanProperty;
 import org.eclipse.xwt.javabean.metadata.properties.DynamicProperty;
@@ -58,6 +56,7 @@ import org.eclipse.xwt.metadata.IProperty;
  * 
  * @author xye (xiaowei.ye@soyatec.com)
  */
+@SuppressWarnings("all")
 public abstract class AbstractMetaclass implements IMetaclass {
 	public static IObjectInitializer[] EMPTY_INITIALIZERS = new IObjectInitializer[0];
 

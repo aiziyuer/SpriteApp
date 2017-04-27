@@ -19,6 +19,7 @@ import org.eclipse.xwt.metadata.ILoadingType;
 import org.eclipse.xwt.metadata.IProperty;
 import org.eclipse.xwt.metadata.ISetPostAction;
 
+@SuppressWarnings("all")
 public abstract class AbstractProperty extends Behavior implements IProperty {
 	static final int VALUE_AS_PARENT = 1<<1;
 	

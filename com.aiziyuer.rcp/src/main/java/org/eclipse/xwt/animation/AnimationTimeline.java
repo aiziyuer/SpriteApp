@@ -17,7 +17,7 @@ import org.eclipse.xwt.animation.internal.PathPropertyAccessor;
 import org.eclipse.xwt.internal.utils.UserData;
 import org.eclipse.xwt.metadata.IMetaclass;
 import org.eclipse.xwt.metadata.IProperty;
-
+@SuppressWarnings("all")
 public abstract class AnimationTimeline extends Timeline {
 	private boolean isDestinationDefault;
 	private String targetName;

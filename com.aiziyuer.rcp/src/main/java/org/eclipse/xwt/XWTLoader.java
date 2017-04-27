@@ -188,6 +188,7 @@ import org.eclipse.xwt.utils.ResourceManager;
  * 
  * @author yyang (yves.yang@soyatec.com) jliu (jin.liu@soyatec.com)
  */
+@SuppressWarnings("all")
 public class XWTLoader implements IXWTLoader {
 	// Declarations
 	private Stack<Core> cores;

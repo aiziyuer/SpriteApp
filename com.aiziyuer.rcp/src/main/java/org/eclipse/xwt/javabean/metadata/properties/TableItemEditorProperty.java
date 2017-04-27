@@ -22,6 +22,7 @@ import org.eclipse.swt.widgets.TableItem;
  * 
  * @author yyang (yves.yang@soyatec.com)
  */
+@SuppressWarnings("all")
 public class TableItemEditorProperty extends AbstractProperty {
 
 	public TableItemEditorProperty() {

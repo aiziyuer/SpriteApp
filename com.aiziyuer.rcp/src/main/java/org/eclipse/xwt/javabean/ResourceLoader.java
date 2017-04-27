@@ -100,6 +100,7 @@ import org.eclipse.xwt.utils.PathHelper;
 /**
  * @author jliu (jin.liu@soyatec.com)
  */
+@SuppressWarnings("all")
 public class ResourceLoader implements IVisualElementLoader {
 	static Map<String, Object> EMPTY_MAP = Collections.EMPTY_MAP;
 

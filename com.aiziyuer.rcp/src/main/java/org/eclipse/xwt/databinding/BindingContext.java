@@ -29,6 +29,7 @@ import org.eclipse.xwt.XWT;
 /**
  * @author hceylan
  */
+@SuppressWarnings("all")
 public class BindingContext implements IBindingContext {
 
 	private org.eclipse.core.databinding.DataBindingContext context;

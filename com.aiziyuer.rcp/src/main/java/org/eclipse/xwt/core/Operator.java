@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 import org.eclipse.xwt.XWTException;
 import org.eclipse.xwt.utils.OperatorExceptionMessage;
 
+@SuppressWarnings("all")
 public enum Operator {
 	EQ, NE, GT, LT, GE, LE, LIKE, IS_A, IS_KIND_OF;
 	

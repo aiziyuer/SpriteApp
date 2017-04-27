@@ -14,6 +14,7 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.internal.databinding.viewers.ViewerObservableValueDecorator;
 import org.eclipse.jface.viewers.Viewer;
 
+@SuppressWarnings("all")
 public class TypedViewerObservableValueDecorator extends
 		ViewerObservableValueDecorator {
 	protected Object elementType;

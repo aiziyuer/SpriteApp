@@ -33,6 +33,7 @@ import org.eclipse.xwt.internal.utils.UserData;
  * 
  * @author yyang (yves.yang@soyatec.com)
  */
+@SuppressWarnings("all")
 public abstract class DynamicBinding implements IDynamicBinding {
 	private Object control;
 

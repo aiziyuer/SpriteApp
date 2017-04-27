@@ -20,6 +20,7 @@ import org.eclipse.swt.widgets.TableItem;
  * 
  * @author yyang (yves.yang@soyatec.com)
  */
+@SuppressWarnings("all")
 public class TableItemProperty extends AbstractProperty {
 
 	public static class Cell {

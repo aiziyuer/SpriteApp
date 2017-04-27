@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.xwt.internal.utils.UserData;
 
+@SuppressWarnings("all")
 public class ScopeKeeper implements DisposeListener {
 	private static final long serialVersionUID = 1L;
 

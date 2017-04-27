@@ -20,6 +20,7 @@ import org.eclipse.xwt.internal.xml.Attribute;
 import org.eclipse.xwt.internal.xml.DocumentObject;
 import org.eclipse.xwt.internal.xml.Element;
 
+@SuppressWarnings("all")
 public class DocumentObjectSorter {
 
 	public static List<DocumentObject> sortWithAttr(DocumentObject[] sourceArray, String attrName) {

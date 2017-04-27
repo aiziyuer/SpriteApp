@@ -22,6 +22,7 @@ import org.eclipse.xwt.core.ICollectionView;
  * 
  * @author yyang
  */
+@SuppressWarnings("all")
 public class CollectionView<T> implements ICollectionView<T> {
 	private T currentItem;
 	private int currentPosition = 0;

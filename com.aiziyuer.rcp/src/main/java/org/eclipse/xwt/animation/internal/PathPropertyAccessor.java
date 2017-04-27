@@ -16,7 +16,7 @@ import org.eclipse.xwt.metadata.IMetaclass;
 import org.eclipse.xwt.metadata.IProperty;
 import org.eclipse.xwt.metadata.ModelUtils;
 import org.pushingpixels.trident.TimelinePropertyBuilder.PropertyAccessor;
-
+@SuppressWarnings("all")
 public class PathPropertyAccessor<T> implements PropertyAccessor<T> {
 	private String path;
 	private String[] segments;

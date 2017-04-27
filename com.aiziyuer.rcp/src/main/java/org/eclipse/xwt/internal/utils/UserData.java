@@ -54,6 +54,7 @@ import org.eclipse.xwt.javabean.Controller;
 import org.eclipse.xwt.jface.JFacesHelper;
 import org.eclipse.xwt.metadata.IProperty;
 
+@SuppressWarnings("all")
 public class UserData {
 	private HashMap<Object, Object> dictionary = null;
 	private IObservableValueListener observableValueManager;
