@@ -469,8 +469,15 @@ public class ResourceLoader implements IVisualElementLoader {
 					|| styleValue == null || styleValue == -1) {
 				styleValue = SWT.SHELL_TRIM;
 			}
-			Display display = Display.getCurrent();
-			shell = new Shell(display, styleValue);
+//			Display display = Display.getCurrent();
+//			shell = new Shell(display, styleValue);
+			
+			if(parent != null && parent instanceof Shell && metaclass.getType() == Shell.class) {
+			    shell = new Shell((Shell) parent, styleValue);
+			} else {
+			    shell = new Shell(Display.getDefault(), styleValue);
+			}
+			
 			targetObject = shell;
 			invokeCreatededAction(element, targetObject);
 			loadData.setCurrentWidget(shell);
