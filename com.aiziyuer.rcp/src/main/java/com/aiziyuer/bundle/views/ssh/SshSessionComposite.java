@@ -2,9 +2,7 @@ package com.aiziyuer.bundle.views.ssh;
 
 import java.beans.PropertyChangeEvent;
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.SerializationUtils;
 import org.apache.log4j.Logger;
 import org.eclipse.core.databinding.beans.BeanProperties;
@@ -25,6 +23,7 @@ import org.eclipse.xwt.annotation.UI;
 
 import com.aiziyuer.bundle.framework.common.ui.AbstractComposite;
 import com.aiziyuer.bundle.framework.common.ui.WindowsFactory;
+import com.aiziyuer.bundle.framework.utils.CustomizedBeanUtilsBean;
 import com.aiziyuer.bundle.manager.ssh.SshSessionManager;
 import com.aiziyuer.bundle.models.ssh.SshSession;
 import com.aiziyuer.bundle.models.ssh.SshSessionDataContext;
@@ -100,9 +99,9 @@ public class SshSessionComposite extends AbstractComposite {
 					if (result == SWT.OK) {
 						// TODO 这里需要对比数据是否有修改
 						try {
-							List<SshTunnel> sshTunnels = selectedSshSession.getTunnels();
-							BeanUtils.copyProperties(selectedSshSession, sshSession);
-							selectedSshSession.setTunnels(sshTunnels);
+
+							new CustomizedBeanUtilsBean(new String[] { "tunnels" }).copyProperties(selectedSshSession,
+									sshSession);
 
 							sessionTreeViewer.refresh(selectedItem);
 						} catch (IllegalAccessException | InvocationTargetException e) {
@@ -119,9 +118,10 @@ public class SshSessionComposite extends AbstractComposite {
 
 						// TODO 这里需要对比数据是否有修改
 						try {
-							SshSession sshSession = selectedSshTunnel.getSshSession();
-							BeanUtils.copyProperties(selectedSshTunnel, sshTunnel);
-							selectedSshTunnel.setSshSession(sshSession);
+
+							new CustomizedBeanUtilsBean(new String[] { "sshSession" }).copyProperties(selectedSshTunnel,
+									sshTunnel);
+
 							sessionTreeViewer.refresh(selectedItem);
 						} catch (IllegalAccessException | InvocationTargetException e) {
 							log.error(e);
