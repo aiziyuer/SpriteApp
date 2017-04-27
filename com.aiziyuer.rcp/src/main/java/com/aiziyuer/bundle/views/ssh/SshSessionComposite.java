@@ -25,7 +25,7 @@ import org.eclipse.xwt.annotation.UI;
 
 import com.aiziyuer.bundle.framework.common.ui.AbstractComposite;
 import com.aiziyuer.bundle.framework.common.ui.WindowsFactory;
-import com.aiziyuer.bundle.manager.SshSessionManager;
+import com.aiziyuer.bundle.manager.ssh.SshSessionManager;
 import com.aiziyuer.bundle.models.ssh.SshSession;
 import com.aiziyuer.bundle.models.ssh.SshSessionDataContext;
 import com.aiziyuer.bundle.models.ssh.SshTunnel;
@@ -64,13 +64,13 @@ public class SshSessionComposite extends AbstractComposite {
 				Object selectedItem = context.getSingleSelectItems();
 				if (selectedItem instanceof SshSession) {
 					SshSession sshSession = (SshSession) selectedItem;
-					SshSessionManager.INSTANCE.createTunnel(sshSession, null);
+					SshSessionManager.createTunnel(sshSession, null);
 				}
 
 				else if (selectedItem instanceof SshTunnel) {
 					SshTunnel sshTunnel = (SshTunnel) selectedItem;
 
-					SshSessionManager.INSTANCE.createTunnel(sshTunnel.getSshSession(), sshTunnel);
+					SshSessionManager.createTunnel(sshTunnel.getSshSession(), sshTunnel);
 				}
 			}
 
