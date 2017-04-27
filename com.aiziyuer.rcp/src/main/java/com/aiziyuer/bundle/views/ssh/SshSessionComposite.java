@@ -55,24 +55,37 @@ public class SshSessionComposite extends AbstractComposite {
 	protected void addListener() {
 
 		connectMenuItem.addSelectionListener(new SelectionAdapter() {
-
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				log.info("connectMenuItem clicked.");
 
-				Object selectedItem = context.getSingleSelectItems();
-				if (selectedItem instanceof SshSession) {
-					SshSession sshSession = (SshSession) selectedItem;
-					SshSessionManager.createTunnel(sshSession, null);
-				}
-
-				else if (selectedItem instanceof SshTunnel) {
-					SshTunnel sshTunnel = (SshTunnel) selectedItem;
-
-					SshSessionManager.createTunnel(sshTunnel.getSshSession(), sshTunnel);
+				for (Object selectedItem : context.getMultiSelectedItems()) {
+					if (selectedItem instanceof SshSession)
+						SshSessionManager.startSession((SshSession) selectedItem);
+					else if (selectedItem instanceof SshTunnel) {
+						SshTunnel sshTunnel = (SshTunnel) selectedItem;
+						SshSessionManager.startTunnel(sshTunnel.getSshSession(), sshTunnel);
+					}
 				}
 			}
+		});
 
+		disconnectMenuItem.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				log.info("disconnectMenuItem clicked.");
+
+				for (Object selectedItem : context.getMultiSelectedItems()) {
+					if (selectedItem instanceof SshSession)
+						SshSessionManager.stopSession((SshSession) selectedItem);
+					else if (selectedItem instanceof SshTunnel) {
+						SshTunnel sshTunnel = (SshTunnel) selectedItem;
+						SshSessionManager.stopTunnel(sshTunnel.getSshSession(), sshTunnel);
+					}
+				}
+
+			}
 		});
 
 		addMenuItem.addSelectionListener(new SelectionAdapter() {
@@ -139,15 +152,6 @@ public class SshSessionComposite extends AbstractComposite {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				log.info("deleteMenuItem clicked.");
-			}
-
-		});
-
-		disconnectMenuItem.addSelectionListener(new SelectionAdapter() {
-
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				log.info("disconnectMenuItem clicked.");
 			}
 
 		});
