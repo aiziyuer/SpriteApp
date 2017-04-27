@@ -44,9 +44,6 @@
 									<id>com.esotericsoftware.yamlbeans:yamlbeans:1.08</id>
 								</artifact>
 								<artifact>
-									<id>com.jcraft:jsch:0.1.53</id>
-								</artifact>
-								<artifact>
 									<id>org.apache.sshd:sshd-core:jar:1.4.0</id>
 								</artifact>
 								<artifact>
