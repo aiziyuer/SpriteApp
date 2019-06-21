@@ -13,6 +13,7 @@ deploy:
    - releng/com.aiziyuer.sprite.product/target/products/SpriteApp-win32.win32.x86_64.zip
    - releng/com.aiziyuer.sprite.product/target/products/SpriteApp-linux.gtk.x86_64.zip
    - releng/com.aiziyuer.sprite.product/target/products/SpriteApp-macosx.cocoa.x86_64.zip
+  skip_cleanup: true
   on:
     repo: aiziyuer/SpriteApp
     tags: true
