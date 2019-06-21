@@ -49,18 +49,6 @@
             </command>
          </menu>
       </menuContribution>
-      <menuContribution
-            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-         <toolbar
-               id="example.bundle.toolbars.sampleToolbar">
-            <command
-                  commandId="example.bundle.commands.sampleCommand"
-                  icon="icons/sample.gif"
-                  id="example.bundle.toolbars.sampleCommand"
-                  tooltip="Say hello world">
-            </command>
-         </toolbar>
-      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
@@ -94,6 +82,13 @@
          point="org.eclipse.ui.views">
       <view
             allowMultiple="false"
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            id="com.aiziyuer.rcp.CommonNavigator"
+            name="Navigator"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="false"
             class="com.aiziyuer.bundle.views.ssh.SshSessionViewPart"
             id="com.aiziyuer.bundle.views.SshSessionViewPart"
             name="SSH Connection">
@@ -107,14 +102,24 @@
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
          <perspectiveExtension targetID="com.aiziyuer.bundle.perspective">
+            <view
+                  closeable="false"
+                  id="com.aiziyuer.rcp.CommonNavigator"
+                  minimized="false"
+                  relationship="left"
+                  relative="com.aiziyuer.rcp.CommonNavigator"
+                  showTitle="true"
+                  standalone="true"
+                  visible="true">
+            </view>
          <view
                closeable="false"
                id="com.aiziyuer.bundle.views.SshSessionViewPart"
                minimized="false"
                moveable="true"
                ratio="0.3f"
-               relationship="left"
-               relative="org.eclipse.ui.editorss"
+               relationship="right"
+               relative="com.aiziyuer.rcp.CommonNavigator"
                showTitle="true"
                standalone="true"
                visible="true">  
@@ -125,8 +130,61 @@
                relationship="stack"
                relative="com.aiziyuer.bundle.views.SshSessionViewPart"
                visible="true">
-         </view>  
+         </view>
          </perspectiveExtension>  
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewer
+            viewerId="com.aiziyuer.rcp.viewer1">
+      </viewer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <navigatorContent
+            contentProvider="com.aiziyuer.bundle.views.navigator.MyNavigatorContentProvider"
+            id="com.aiziyuer.rcp.navigatorContent1"
+            labelProvider="com.aiziyuer.bundle.views.navigator.MyNavigatorLabelProvider"
+            name="Properties File Contents"
+            priority="normal">
+         <triggerPoints>
+            <or>
+               <and>
+                  <instanceof
+                        value="org.eclipse.core.resources.IResource">
+                  </instanceof>
+                  <test
+                        forcePluginActivation="true"
+                        property="org.eclipse.core.resources.extension"
+                        value="properties">
+                  </test></and>
+               <instanceof
+                     value="com.aiziyuer.bundle.views.navigator.PropertiesTreeData">
+               </instanceof>
+            </or></triggerPoints>
+         <possibleChildren>
+            <or>
+               <instanceof
+                     value="com.aiziyuer.bundle.views.navigator.PropertiesTreeData">
+               </instanceof>
+            </or>
+         </possibleChildren>
+      </navigatorContent>
+          <commonFilter  
+                id="org.eclipse.ui.examples.navigator.filters.hideNonJavaProjects"  
+                name="Hide non-Java Projects">  
+             <filterExpression>  
+                <not>  
+                   <adapt  
+                         type="org.eclipse.core.resources.IProject">  
+                      <test  
+                            property="org.eclipse.core.resources.projectNature"  
+                            value="org.eclipse.jdt.core.javanature">  
+                      </test>  
+                   </adapt>  
+                </not>  
+             </filterExpression>  
+          </commonFilter> 
    </extension>
 
 </plugin>
