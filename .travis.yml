@@ -15,3 +15,5 @@ deploy:
    - releng/com.aiziyuer.sprite/target/products/SpriteApp-macosx.cocoa.x86_64.zip
   on:
     repo: aiziyuer/SpriteApp
+    tags: true
+    all_branches: true
