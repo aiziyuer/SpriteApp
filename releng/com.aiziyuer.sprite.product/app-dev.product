@@ -8,6 +8,9 @@
    </configIni>
 
    <launcherArgs>
+      <programArgs>-console
+-clearPersistedState
+      </programArgs>
    </launcherArgs>
 
    <windowImages/>
