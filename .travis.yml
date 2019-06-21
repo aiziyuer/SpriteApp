@@ -9,10 +9,10 @@ deploy:
   api_key:
     secure: i9snJsUoyTI0rF74+NCZu8f5L0ZwzDjd+h6joO0X6/hrPIt3IF51ZuQby0ol7hQ2kVTRYcii2ZBmE6Q51R3p4nuwh1kTQmyJK/v3yvT5LhO3BqoLpUYEqENO6SKXZ1lXxORmL8lz4M7ca4uAMqZYnbHI+X09jRXXl/HnLCqbnG4fpXwGE1erO0Yfzzh/wrHwbSktPixw1DCsqPf87hDsZLkQ7/FxLTWQiEGLq6EZ0Dmri4tZRaTiFaoqAXwTPcs+izfGfUhd5CRk6nc1NXeVn1gVSXQvxW1SZoQt/G2FfQFdfDd1UmJ/CUtD6322yRdHnx70dk5rKJf9meUjr4T6CNK2rwg5Tbk+8cyfzuNmNtIAfg+5R7WnUZUvG0Eb3o09xAyCpaFZhwgtLakflQsZg4X4RWvELc5OFieuKikSn2RY5oZlXPRNK+6LGN9cm7zpu2cqxXh8+AqNKnbBRHPcnnHskG3I43iVfuqqrvY0b8NzAbfNJ04jhr/5MxuTVHjkgqFypXHzzzo++hCha8drx7mI2bR1rmOaZZjoGRADwXK6C27wmmxFYHCDIHP5R5FESUFOsFQ7k5cdN3xnSfba1dUbmzbJlMJ3DS+QukaKLyGsOKc245zDSTWVbKyM1MlN1ON/9HYeNq9qqUrz4jFHOZ5OWTH98u8R6jBwKO2SwGY=
   file:
-   - releng/com.aiziyuer.sprite/target/products/SpriteApp-win32.win32.x86.zip
-   - releng/com.aiziyuer.sprite/target/products/SpriteApp-win32.win32.x86_64.zip
-   - releng/com.aiziyuer.sprite/target/products/SpriteApp-linux.gtk.x86_64.zip
-   - releng/com.aiziyuer.sprite/target/products/SpriteApp-macosx.cocoa.x86_64.zip
+   - releng/com.aiziyuer.sprite.product/target/products/SpriteApp-win32.win32.x86.zip
+   - releng/com.aiziyuer.sprite.product/target/products/SpriteApp-win32.win32.x86_64.zip
+   - releng/com.aiziyuer.sprite.product/target/products/SpriteApp-linux.gtk.x86_64.zip
+   - releng/com.aiziyuer.sprite.product/target/products/SpriteApp-macosx.cocoa.x86_64.zip
   on:
     repo: aiziyuer/SpriteApp
     tags: true
