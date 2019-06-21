@@ -16,4 +16,3 @@ deploy:
   on:
     repo: aiziyuer/SpriteApp
     tags: true
-    all_branches: true
