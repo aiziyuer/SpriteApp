@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/aiziyuer/SpriteApp.svg?branch=master)](https://travis-ci.org/aiziyuer/SpriteApp)
 
 
-<img src="https://cdn.rawgit.com/aiziyuer/spriteapp/master/Design/FrontDesign/robot.svg" width=100>
+<img src="https://raw.githubusercontent.com/aiziyuer/SpriteApp/master/Design/FrontDesign/robot.svg" width=100>
 
 ## 功能设计
 
@@ -17,7 +17,7 @@
 
 初步用例设计:
 
-![image](https://cdn.rawgit.com/aiziyuer/spriteapp/master/Design/SSH隧道交互用例.svg)
+![image](https://raw.githubusercontent.com/aiziyuer/SpriteApp/master/Design/SSH隧道交互用例.svg)
 
 
 ### 应用编译
