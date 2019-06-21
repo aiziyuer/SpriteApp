@@ -2,24 +2,24 @@
 <?pde version="3.8"?><target name="eclipse Mars" sequenceNumber="12">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
-<unit id="org.eclipse.rcp.source.feature.group" version="4.5.2.v20160212-1500"/>
 <unit id="org.eclipse.rcp.feature.group" version="4.5.2.v20160212-1500"/>
-<unit id="org.eclipse.xwt.workbench.feature.feature.group" version="1.1.0.v20150608-1518"/>
+<unit id="org.eclipse.rcp.source.feature.group" version="4.5.2.v20160212-1500"/>
 <unit id="org.eclipse.xwt.feature.feature.group" version="1.1.0.v20150608-1518"/>
+<unit id="org.eclipse.xwt.workbench.feature.feature.group" version="1.1.0.v20150608-1518"/>
 <repository location="http://download.eclipse.org/releases/mars"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
-<unit id="org.apache.sshd.core" version="1.4.0"/>
-<unit id="org.apache.commons.lang" version="2.6.0"/>
-<unit id="org.apache.commons.lang" version="2.6.0"/>
 <unit id="com.esotericsoftware.yamlbeans" version="1.8.0"/>
-<unit id="org.apache.commons.lang3" version="3.1.0"/>
-<unit id="org.apache.commons.lang" version="2.6.0"/>
-<unit id="slf4j.api" version="1.7.22"/>
-<unit id="org.apache.commons.io" version="2.1.0"/>
-<unit id="org.apache.commons.beanutils" version="1.8.3"/>
-<unit id="log4j" version="1.2.17"/>
 <unit id="commons-logging" version="1.1.1"/>
+<unit id="log4j" version="1.2.17"/>
+<unit id="org.apache.commons.beanutils" version="1.8.3"/>
+<unit id="org.apache.commons.io" version="2.1.0"/>
+<unit id="org.apache.commons.lang" version="2.6.0"/>
+<unit id="org.apache.commons.lang" version="2.6.0"/>
+<unit id="org.apache.commons.lang" version="2.6.0"/>
+<unit id="org.apache.commons.lang3" version="3.1.0"/>
+<unit id="org.apache.sshd.core" version="1.4.0"/>
+<unit id="slf4j.api" version="1.7.22"/>
 <repository location="http://127.0.0.1:8080/site"/>
 </location>
 </locations>
