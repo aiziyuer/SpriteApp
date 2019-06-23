@@ -25,10 +25,6 @@
 
    <features>
       <feature id="com.aiziyuer.rcp.feature" version="1.0.0.qualifier"/>
-      <feature id="org.eclipse.e4.rcp" version="1.4.1.v20160212-1350"/>
-      <feature id="org.eclipse.rcp" version="4.5.2.v20160212-1500"/>
-      <feature id="org.eclipse.emf.ecore"/>
-      <feature id="org.eclipse.emf.common"/>
    </features>
 
    <configurations>
