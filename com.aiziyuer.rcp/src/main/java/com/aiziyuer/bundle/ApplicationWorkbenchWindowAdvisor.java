@@ -36,9 +36,9 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	public void preWindowOpen() {
 		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
 		configurer.setInitialSize(new Point(400, 300));
-		configurer.setShowCoolBar(false);
-		configurer.setShowStatusLine(false);
-		// configurer.setShowPerspectiveBar(true);
+		configurer.setShowCoolBar(true);
+		configurer.setShowStatusLine(true);
+		configurer.setShowPerspectiveBar(true);
 		configurer.setTitle("RCP Application");
 	}
 
@@ -46,13 +46,13 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	public void postWindowCreate() {
 		// remove unwanted menu entries
 		List<String> unwantedItems = Arrays.asList(//
-				"org.eclipse.ui.openLocalFile", //
+				//"org.eclipse.ui.openLocalFile", //
 				"converstLineDelimitersTo", //
 				"org.eclipse.ui.cheatsheets.actions.CheatSheetHelpMenuAction", //
 				"org.eclipse.debug.ui.actions.BreakpointTypesContribution", //
 				"ExternalToolsGroup", //
 				"org.eclipse.ui.externaltools.ExternalToolMenuDelegateMenu", //
-				"navigate", //
+				//"navigate", //
 				"org.eclipse.search.menu", //
 				"org.eclipse.ui.run" //
 		);

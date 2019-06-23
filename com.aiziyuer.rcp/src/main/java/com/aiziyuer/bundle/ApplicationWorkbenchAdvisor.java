@@ -10,6 +10,8 @@
  *******************************************************************************/
 package com.aiziyuer.bundle;
 
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
@@ -23,11 +25,27 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
 		return new ApplicationWorkbenchWindowAdvisor(configurer);
 	}
-	
-
 
 	@Override
 	public String getInitialWindowPerspectiveId() {
 		return PERSPECTIVE_ID;
 	}
+
+	/**
+	 * 新增project explorer时引入
+	 * 
+	 * @see org.eclipse.ui.IPageLayout.ID_PROJECT_EXPLORER
+	 * @see https://www.eclipse.org/forums/index.php/t/210772/
+	 * @see org.eclipse.ui.application.WorkbenchAdvisor#getDefaultPageInput
+	 */
+	public IAdaptable getDefaultPageInput() {
+		return ResourcesPlugin.getWorkspace().getRoot();
+	}
+	
+	
+	
+	
+	
+	
+
 }

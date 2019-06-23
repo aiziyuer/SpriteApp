@@ -10,11 +10,6 @@
  *******************************************************************************/
 package com.aiziyuer.bundle;
 
-import java.io.IOException;
-
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.wb.swt.SWTResourceManager;
@@ -31,19 +26,10 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	private static Activator plugin;
 
-	private Logger log = Logger.getLogger(getClass());
-
 	/**
 	 * The constructor
 	 */
 	public Activator() {
-
-		try {
-			PropertyConfigurator
-					.configure(FileLocator.toFileURL(getBundle().getResource("log4j.properties")).getFile());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
 	}
 
@@ -57,7 +43,6 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		log.info(PLUGIN_ID + " started.");
 	}
 
 	/*
@@ -83,8 +68,8 @@ public class Activator extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Returns an image descriptor for the image file at the given plug-in
-	 * relative path
+	 * Returns an image descriptor for the image file at the given plug-in relative
+	 * path
 	 * 
 	 * @param path
 	 *            the path

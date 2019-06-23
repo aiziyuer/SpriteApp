@@ -9,13 +9,13 @@
 	<properties>
 		<tycho.version>1.4.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
+		<repo.url>http://download.eclipse.org/releases/indigo</repo.url>
 	</properties>
 
 	<repositories>
 		<repository>
-			<id>mars</id>
-			<url>${mars-repo.url}</url>
+			<id>eclipse repository</id>
+			<url>${repo.url}</url>
 			<layout>p2</layout>
 		</repository>
 

@@ -29,12 +29,29 @@
                name="windowImages"
                value="icons/alt_window_16.gif,icons/alt_window_32.gif">
          </property>
+         <property
+               name="startupMessageRect"
+               value="7,252,445,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,275,445,15">
+         </property>
       </product>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
             locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="windows"
+               label="Windows">
+            <command
+                  commandId="org.eclipse.ui.window.preferences"
+                  label="Preferences"
+                  style="push">
+            </command>
+         </menu>
          <menu
                id="help"
                label="Help">
@@ -45,15 +62,6 @@
             <command
                   commandId="org.eclipse.ui.help.aboutAction"
                   label="About"
-                  style="push">
-            </command>
-         </menu>
-         <menu
-               id="windows"
-               label="Windows">
-            <command
-                  commandId="org.eclipse.ui.window.preferences"
-                  label="Preferences"
                   style="push">
             </command>
          </menu>
@@ -89,111 +97,20 @@
    </extension>
    <extension
          point="org.eclipse.ui.views">
-      <view
-            allowMultiple="false"
-            class="org.eclipse.ui.navigator.CommonNavigator"
-            id="com.aiziyuer.rcp.CommonNavigator"
-            name="Navigator"
-            restorable="true">
-      </view>
-      <view
-            allowMultiple="false"
-            class="com.aiziyuer.bundle.views.ssh.SshSessionViewPart"
-            id="com.aiziyuer.bundle.views.SshSessionViewPart"
-            name="SSH Connection">
-      </view>
-      <view
-            class="com.aiziyuer.bundle.views.hosts.HostListViewPart"
-            id="com.aiziyuer.bundle.views.HostListViewPart"
-            name="HostListViewPart">
-      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
          <perspectiveExtension targetID="com.aiziyuer.bundle.perspective">
             <view
                   closeable="false"
-                  id="com.aiziyuer.rcp.CommonNavigator"
+                  id="org.eclipse.ui.navigator.ProjectExplorer"
                   minimized="false"
                   relationship="left"
-                  relative="com.aiziyuer.rcp.CommonNavigator"
-                  showTitle="true"
+                  relative="org.eclipse.ui.editorss"
                   standalone="true"
                   visible="true">
             </view>
-         <view
-               closeable="false"
-               id="com.aiziyuer.bundle.views.SshSessionViewPart"
-               minimized="false"
-               moveable="true"
-               ratio="0.3f"
-               relationship="right"
-               relative="com.aiziyuer.rcp.CommonNavigator"
-               showTitle="true"
-               standalone="true"
-               visible="true">  
-         </view>
-         <view
-               id="com.aiziyuer.bundle.views.HostListViewPart"
-               minimized="false"
-               relationship="stack"
-               relative="com.aiziyuer.bundle.views.SshSessionViewPart"
-               visible="true">
-         </view>
          </perspectiveExtension>  
-   </extension>
-   <extension
-         point="org.eclipse.ui.navigator.viewer">
-      <viewer
-            viewerId="com.aiziyuer.rcp.viewer1">
-      </viewer>
-   </extension>
-   <extension
-         point="org.eclipse.ui.navigator.navigatorContent">
-      <navigatorContent
-            contentProvider="com.aiziyuer.bundle.views.navigator.MyNavigatorContentProvider"
-            id="com.aiziyuer.rcp.navigatorContent1"
-            labelProvider="com.aiziyuer.bundle.views.navigator.MyNavigatorLabelProvider"
-            name="Properties File Contents"
-            priority="normal">
-         <triggerPoints>
-            <or>
-               <and>
-                  <instanceof
-                        value="org.eclipse.core.resources.IResource">
-                  </instanceof>
-                  <test
-                        forcePluginActivation="true"
-                        property="org.eclipse.core.resources.extension"
-                        value="properties">
-                  </test></and>
-               <instanceof
-                     value="com.aiziyuer.bundle.views.navigator.PropertiesTreeData">
-               </instanceof>
-            </or></triggerPoints>
-         <possibleChildren>
-            <or>
-               <instanceof
-                     value="com.aiziyuer.bundle.views.navigator.PropertiesTreeData">
-               </instanceof>
-            </or>
-         </possibleChildren>
-      </navigatorContent>
-          <commonFilter  
-                id="org.eclipse.ui.examples.navigator.filters.hideNonJavaProjects"  
-                name="Hide non-Java Projects">  
-             <filterExpression>  
-                <not>  
-                   <adapt  
-                         type="org.eclipse.core.resources.IProject">  
-                      <test  
-                            property="org.eclipse.core.resources.projectNature"  
-                            value="org.eclipse.jdt.core.javanature">  
-                      </test>  
-                   </adapt>  
-                </not>  
-             </filterExpression>  
-          </commonFilter> 
    </extension>
    <extension
          id="com.aziyuer.rcp.SamplePreferencePage"
@@ -209,6 +126,33 @@
       <initializer
             class="com.aiziyuer.bundle.PreferenceInitializer">
       </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerContentBinding
+            viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resourceContent">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.filters.*">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.linkHelper">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.workingSets">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding
+            viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </contentExtension></includes>
+      </viewerActionBinding>
    </extension>
 
 </plugin>
