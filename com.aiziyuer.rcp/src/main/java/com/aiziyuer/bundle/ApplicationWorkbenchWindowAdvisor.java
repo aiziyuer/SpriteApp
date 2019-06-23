@@ -40,13 +40,15 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setShowStatusLine(true);
 		configurer.setShowPerspectiveBar(false);
 		configurer.setTitle("RCP Application");
+
 	}
 
 	@Override
 	public void postWindowCreate() {
+
 		// remove unwanted menu entries
 		List<String> unwantedItems = Arrays.asList(//
-				"org.eclipse.ui.openLocalFile", //
+				// "org.eclipse.ui.openLocalFile", //
 				"converstLineDelimitersTo", //
 				"org.eclipse.ui.cheatsheets.actions.CheatSheetHelpMenuAction", //
 				"org.eclipse.debug.ui.actions.BreakpointTypesContribution", //
@@ -60,6 +62,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
 		IMenuManager menuManager = getWindowConfigurer().getActionBarConfigurer().getMenuManager();
 		removeUnwantedItems(unwantedItems, menuManager);
+		menuManager.update(true); // 这一句是让上面的菜单操作立刻生效
 
 	}
 

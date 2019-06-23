@@ -46,6 +46,10 @@
          <menu
                id="file"
                label="File">
+            <menu
+                  id="save"
+                  label="Save">
+            </menu>
          </menu>
          <menu
                id="edit"
@@ -57,12 +61,16 @@
             </command>
          </menu>
          <menu
+               id="window"
+               label="Window">
+            <menu
+                  id="perspectivesShortlist"
+                  label="Perspective">
+            </menu>
+         </menu>
+         <menu
                id="help"
                label="Help">
-            <command
-                  commandId="example.bundle.commands.sampleCommand"
-                  id="example.bundle.menus.sampleCommand">
-            </command>
             <command
                   commandId="org.eclipse.ui.help.aboutAction"
                   label="About"
