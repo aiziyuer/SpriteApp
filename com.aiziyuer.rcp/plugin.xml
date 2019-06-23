@@ -78,6 +78,16 @@
             </command>
          </menu>
       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
+         <command
+               commandId="com.aiziyuer.rcp.sampleCommand"
+               id="com.aiziyuer.rcp.sampleCommand"
+               label="SampleCommand"
+               style="push">
+         </command>
+      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
@@ -165,6 +175,20 @@
                   pattern="org.eclipse.ui.navigator.resources.*">
             </contentExtension></includes>
       </viewerActionBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.aiziyuer.rcp.sampleCommand"
+            name="SampleCommand">
+         <defaultHandler
+               class="com.aiziyuer.bundle.SampleCommandHandler">
+            <parameter
+                  name="com.aiziyuer.rcp.parameter1"
+                  value="com.aiziyuer.rcp.parameter1">
+            </parameter>
+         </defaultHandler>
+      </command>
    </extension>
 
 </plugin>
