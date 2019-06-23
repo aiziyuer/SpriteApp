@@ -16,15 +16,18 @@ import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
-    private static final String PERSPECTIVE_ID = "com.aiziyuer.bundle.perspective";
+	private static final String PERSPECTIVE_ID = "com.aiziyuer.bundle.perspective";
 
-    @Override
+	@Override
 	public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
-        return new ApplicationWorkbenchWindowAdvisor(configurer);
-    }
 
-    @Override
+		return new ApplicationWorkbenchWindowAdvisor(configurer);
+	}
+	
+
+
+	@Override
 	public String getInitialWindowPerspectiveId() {
-        return PERSPECTIVE_ID;
-    }
+		return PERSPECTIVE_ID;
+	}
 }

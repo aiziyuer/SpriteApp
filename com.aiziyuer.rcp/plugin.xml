@@ -49,6 +49,7 @@
             </command>
          </menu>
          <menu
+               id="windows"
                label="Windows">
             <command
                   commandId="org.eclipse.ui.window.preferences"
