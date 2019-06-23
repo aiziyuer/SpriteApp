@@ -66,12 +66,14 @@
 							<ws>win32</ws>
 							<arch>x86_64</arch>
 						</environment>
+<!--
 						<environment>
 							<os>macosx</os>
 							<ws>cocoa</ws>
 							<arch>x86_64</arch>
-						</environment>
-					</environments>
+					    <environment>
+-->
+                    </environments>
 				</configuration>
 			</plugin>
 		</plugins>
