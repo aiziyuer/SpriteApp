@@ -48,6 +48,14 @@
                   style="push">
             </command>
          </menu>
+         <menu
+               label="Windows">
+            <command
+                  commandId="org.eclipse.ui.window.preferences"
+                  label="Preferences"
+                  style="push">
+            </command>
+         </menu>
       </menuContribution>
    </extension>
    <extension
@@ -185,6 +193,21 @@
                 </not>  
              </filterExpression>  
           </commonFilter> 
+   </extension>
+   <extension
+         id="com.aziyuer.rcp.SamplePreferencePage"
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.aiziyuer.bundle.SamplePreferencePage"
+            id="com.aiziyuer.bundle.SamplePreferencePage"
+            name="Sample PreferencePage">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.aiziyuer.bundle.PreferenceInitializer">
+      </initializer>
    </extension>
 
 </plugin>
