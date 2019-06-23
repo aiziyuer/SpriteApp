@@ -12,9 +12,11 @@ package com.aiziyuer.bundle;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.ui.application.IWorkbenchConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+import org.eclipse.ui.ide.IDE;
 
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
@@ -41,9 +43,16 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	public IAdaptable getDefaultPageInput() {
 		return ResourcesPlugin.getWorkspace().getRoot();
 	}
-	
-	
-	
+
+	@Override
+	public void initialize(IWorkbenchConfigurer configurer) {
+		super.initialize(configurer);
+		
+		// 非常重要, 加入这行后ProjectExplorer中创建的工程就可以看见了
+		// FAQ: https://www.eclipsezone.com/eclipse/forums/t109960.html
+		IDE.registerAdapters();
+		
+	}
 	
 	
 	
